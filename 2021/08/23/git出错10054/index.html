@@ -21,28 +21,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"whisper609.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="关于我。。。。。。。 关于本站本站只是为了分享一些用于学习的技术，如果有什么疑问，请多多留言">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="https://whisper609.github.io/about/index.html">
+<meta name="description" content="最近在使用git时又报出来了这样一个错误“OpenSSL SSL_read: Connection was reset, errno 10054”，意思是OpenSSL SSL_read：连接已重置，错误号 10054 ，于是我就上网搜索了有关解决办法，下面的方法是我使用过真是不错的，我将分享给大家，希望能够帮助你们。 12345678910fatal: unable to access &amp;#x2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git出错10054">
+<meta property="og:url" content="https://whisper609.github.io/2021/08/23/git%E5%87%BA%E9%94%9910054/index.html">
 <meta property="og:site_name" content="Whisper609&#39;s blog">
-<meta property="og:description" content="关于我。。。。。。。 关于本站本站只是为了分享一些用于学习的技术，如果有什么疑问，请多多留言">
+<meta property="og:description" content="最近在使用git时又报出来了这样一个错误“OpenSSL SSL_read: Connection was reset, errno 10054”，意思是OpenSSL SSL_read：连接已重置，错误号 10054 ，于是我就上网搜索了有关解决办法，下面的方法是我使用过真是不错的，我将分享给大家，希望能够帮助你们。 12345678910fatal: unable to access &amp;#x2">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-07-25T09:58:50.000Z">
-<meta property="article:modified_time" content="2021-07-25T10:10:25.223Z">
+<meta property="article:published_time" content="2021-08-23T01:45:04.000Z">
+<meta property="article:modified_time" content="2021-08-23T02:29:15.639Z">
 <meta property="article:author" content="Whisper609">
+<meta property="article:tag" content="问题帮助">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://whisper609.github.io/about/">
+<link rel="canonical" href="https://whisper609.github.io/2021/08/23/git%E5%87%BA%E9%94%9910054/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":true,"permalink":"https://whisper609.github.io/about/index.html","path":"about/index.html","title":"关于"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://whisper609.github.io/2021/08/23/git%E5%87%BA%E9%94%9910054/","path":"2021/08/23/git出错10054/","title":"git出错10054"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>关于 | Whisper609's blog
-</title>
+<title>git出错10054 | Whisper609's blog</title>
   
 
 
@@ -121,7 +121,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E6%88%91"><span class="nav-number">1.</span> <span class="nav-text">关于我</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99"><span class="nav-number">2.</span> <span class="nav-text">关于本站</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%A3%80%E6%9F%A5c%E7%9B%98%E4%B8%8Bhost%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE%E7%9A%84%E5%9F%9F%E5%90%8D%E5%AF%B9%E5%BA%94%E7%9A%84ip%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE"><span class="nav-number">1.</span> <span class="nav-text">1.检查c盘下host文件访问的域名对应的ip是否正确</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%A7%A3%E9%99%A4ssl%E9%99%90%E5%88%B6"><span class="nav-number">2.</span> <span class="nav-text">2.解除ssl限制</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -200,38 +200,111 @@
 </noscript>
 
 
-    <div class="main-inner page posts-expand">
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
   
   
 
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://whisper609.github.io/2021/08/23/git%E5%87%BA%E9%94%9910054/">
 
-    
-    
-    
-    <div class="post-block" lang="en"><header class="post-header">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/author.jpeg">
+      <meta itemprop="name" content="Whisper609">
+      <meta itemprop="description" content="Yes,I can do it">
+    </span>
 
-<h1 class="post-title" itemprop="name headline">关于
-</h1>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Whisper609's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          git出错10054
+        </h1>
 
-<div class="post-meta-container">
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-08-23 09:45:04 / Modified: 10:29:15" itemprop="dateCreated datePublished" datetime="2021-08-23T09:45:04+08:00">2021-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%97%AE%E9%A2%98%E5%B8%AE%E5%8A%A9/" itemprop="url" rel="index"><span itemprop="name">问题帮助</span></a>
+        </span>
+    </span>
+
+  
 </div>
 
-</header>
+        </div>
+      </header>
 
-      
-      
-      <div class="post-body">
-          <h2 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h2><p>。。。。。。。</p>
-<h2 id="关于本站"><a href="#关于本站" class="headerlink" title="关于本站"></a>关于本站</h2><p>本站只是为了分享一些用于学习的技术，如果有什么疑问，请多多留言</p>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>最近在使用git时又报出来了这样一个错误“OpenSSL SSL_read: Connection was reset, errno 10054”，意思是OpenSSL SSL_read：连接已重置，错误号 10054 ，于是我就上网搜索了有关解决办法，下面的方法是我使用过真是不错的，我将分享给大家，希望能够帮助你们。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/Whisper609/Whisper609.github.io.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line">FATAL &#123;</span><br><span class="line">  err: Error: Spawn failed</span><br><span class="line">      at ChildProcess.&lt;anonymous&gt; (E:\Whiper609blog\Whisper609\node_modules\hexo-util\lib\spawn.js:51:21)</span><br><span class="line">      at ChildProcess.emit (events.js:400:28)</span><br><span class="line">      at ChildProcess.cp.emit (E:\Whiper609blog\Whisper609\node_modules\cross-spawn\lib\enoent.js:34:29)</span><br><span class="line">      at Process.ChildProcess._handle.onexit (internal/child_process.js:277:12) &#123;</span><br><span class="line">    code: 128</span><br><span class="line">  &#125;</span><br><span class="line">&#125; Something&#x27;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span><br></pre></td></tr></table></figure>
 
-      </div>
-      
-      
-      
+<p>首先出现这个的原因是网络不稳定而导致的连接超时问题。</p>
+<h3 id="1-检查c盘下host文件访问的域名对应的ip是否正确"><a href="#1-检查c盘下host文件访问的域名对应的ip是否正确" class="headerlink" title="1.检查c盘下host文件访问的域名对应的ip是否正确"></a><strong>1.检查c盘下host文件访问的域名对应的ip是否正确</strong></h3><p>先在命令行窗口Ping一下github的地址，就可以获得github官网的IP地址</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">E:\Whiper609blog\Whisper609&gt;ping github.com</span><br><span class="line"></span><br><span class="line">正在 Ping github.com [140.82.114.4] 具有 32 字节的数据:</span><br><span class="line">来自 140.82.114.4 的回复: 字节=32 时间=267ms TTL=48</span><br><span class="line">来自 140.82.114.4 的回复: 字节=32 时间=255ms TTL=48</span><br><span class="line">来自 140.82.114.4 的回复: 字节=32 时间=247ms TTL=48</span><br><span class="line">来自 140.82.114.4 的回复: 字节=32 时间=262ms TTL=48</span><br><span class="line"></span><br><span class="line">140.82.114.4 的 Ping 统计信息:</span><br><span class="line">    数据包: 已发送 = 4，已接收 = 4，丢失 = 0 (0% 丢失)，</span><br><span class="line">往返行程的估计时间(以毫秒为单位):</span><br><span class="line">    最短 = 247ms，最长 = 267ms，平均 = 257ms</span><br></pre></td></tr></table></figure>
+
+<p>然后找到这个“C:\Windows\System32\drivers\etc”路径下的hosts文件，</p>
+<p>使用记事本打开对比上面ping的ip地址和记录的IP地址是否一致，一致说明IP地址没有错误，再对上传几次，若是没有用再尝试下面的方法。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">140.82.114.4 github.com</span><br><span class="line">4 × IPv4 github.global.ssl.fastly.net</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-解除ssl限制"><a href="#2-解除ssl限制" class="headerlink" title="2.解除ssl限制"></a><strong>2.解除ssl限</strong>制</h3><p>打开命令行模式，修改设置，解除ssl验证</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.sslVerify &quot;false&quot;</span><br></pre></td></tr></table></figure>
+
+<p>再上传即可。</p>
+
     </div>
 
     
     
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%97%AE%E9%A2%98%E5%B8%AE%E5%8A%A9/" rel="tag"># 问题帮助</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/07/10/%E8%B6%85%E6%98%9F%E5%AD%A6%E4%B9%A0%E9%80%9A%E8%AF%BE%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%96%B9%E6%B3%95/" rel="prev" title="超星学习通课件下载方法">
+                  <i class="fa fa-chevron-left"></i> 超星学习通课件下载方法
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
 
 
 </div>
