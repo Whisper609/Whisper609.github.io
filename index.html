@@ -134,20 +134,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -197,112 +197,6 @@
 
 
     <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://whisper609.github.io/2021/08/26/hexo%E5%8D%9A%E5%AE%A2%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/author.jpeg">
-      <meta itemprop="name" content="Whisper609">
-      <meta itemprop="description" content="Yes,I can do it">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Whisper609's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/26/hexo%E5%8D%9A%E5%AE%A2%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" class="post-title-link" itemprop="url">hexo博客插入图片</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2021-08-26 10:24:36 / Modified: 12:46:11" itemprop="dateCreated datePublished" datetime="2021-08-26T10:24:36+08:00">2021-08-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/hexo%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" itemprop="url" rel="index"><span itemprop="name">hexo使用技巧</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>​    由于是刚刚开始写博客的小白，所以有时候在写博客遇到过这样的问题：插入图片失败。我刚开始写博客的时候是这样插入的，使用电脑上的截图工具将自己想要的图片截好之后直接粘贴到文章里面，发现最后图片并不能先显示。所以我就上网搜索了有关的解决方案并加上自己的理解写出了这篇文章，希望能对大家有帮助。</p>
-<p>​    <strong>1.首先我们需要修改一下博客文件目录下的_config.yml文件，更改文中的一行配置：</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">将 post_asset_folder: false</span><br><span class="line">改为 post_asset_folder: true</span><br></pre></td></tr></table></figure>
-
-<p>​    <strong>2.我们需要安装一个图片插件</strong></p>
-<p>​    使用以下命令进行安装</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image -- save</span><br></pre></td></tr></table></figure>
-
-<p>​    但结果并不是我想要的，反而报出许多错误，刚开始我以为是自己输入错误，反复试了几遍，最后还是不行。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">第一次：</span><br></pre></td></tr></table></figure>
-
-<p><img src="/.io//image-20210826111033508.png" alt="image-20210826111033508"></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">第二次：</span><br></pre></td></tr></table></figure>
-
-<p><img src="/.io//image-20210826111124877.png" alt="image-20210826111124877"></p>
-<p>我又看了看出错代码，“EBUSY”明白了出错的原因，因为我是从GitHub上下载这个插件的，GitHub网速很不稳定，可能会出现失败的情况。所以不用担心，换成下面的代码就可以了。原因是因为下面的下载路径是从网上的其他地方找到的</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">E:\Whiper609blog\Whisper609&gt;npm install hexo-asset-image -- save</span><br><span class="line">npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.13 (node_modules\hexo-helper-live2d\node_modules\fsevents):</span><br><span class="line">npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.13: wanted &#123;&quot;os&quot;:&quot;darwin&quot;,&quot;arch&quot;:&quot;any&quot;&#125; (current: &#123;&quot;os&quot;:&quot;win32&quot;,&quot;arch&quot;:&quot;x64&quot;&#125;)</span><br><span class="line">npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@2.3.2 (node_modules\fsevents):</span><br><span class="line">npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.3.2: wanted &#123;&quot;os&quot;:&quot;darwin&quot;,&quot;arch&quot;:&quot;any&quot;&#125; (current: &#123;&quot;os&quot;:&quot;win32&quot;,&quot;arch&quot;:&quot;x64&quot;&#125;)</span><br><span class="line"></span><br><span class="line">+ save@2.4.0</span><br><span class="line">+ hexo-asset-image@1.0.0</span><br><span class="line">added 12 packages from 11 contributors, updated 1 package and audited 653 packages in 7.203s</span><br><span class="line"></span><br><span class="line">19 packages are looking for funding</span><br><span class="line">  run `npm fund` for details</span><br><span class="line"></span><br><span class="line">found 11 vulnerabilities (6 low, 1 moderate, 4 high)</span><br><span class="line">  run `npm audit fix` to fix them, or `npm audit` for details</span><br></pre></td></tr></table></figure>
-
-<p><strong>3.创建一篇博客文章</strong></p>
-<p>​    使用”hexo new post 博客名”创建一篇新文章，创建成功后会显示新博客所在的文件路径</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new post hexo博客插入图片</span><br><span class="line">......</span><br><span class="line">INFO  Created: E:\Whiper609blog\Whisper609\source\_posts\hexo博客插入图片.md</span><br></pre></td></tr></table></figure>
-
-<p>​    打开这个博客文件路径，会发现在这个文件夹下面生成了hexo博客插入图片.md博文和hexo博客插入图片文件夹，将想要插入的图片放入到这个文件夹里面。</p>
-<p><img src="/.io//image-20210826110904983.png" alt="image-20210826110904983"></p>
-<p><strong>4.hexo与Typora的完美结合</strong></p>
-<p>现在我将为你们介绍一款好用的软件Typora，<strong>Typora</strong>是一款很好用的Markdown文本编辑器。</p>
-<p>我们可以在Typora的<code>文件-&gt;偏好设置</code>或者直接<code>&lt;C-,&gt;</code>进入设置。更改图片的路径至刚才创建好的文件路径下</p>
-<p><img src="/.io//image-20210826111716548.png" alt="image-20210826111716548"></p>
-<p>然后直接粘贴到你写博文中，它就会将你博客里面的图片直接保存在你想要文件夹中。</p>
-<p><img src="/.io//image-20210826111939768.png" alt="image-20210826111939768"></p>
-<p><strong>5.上传发布博客</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
 
     
 
