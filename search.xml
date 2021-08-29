@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Whisper609&#39;s blog</title>
+    <url>/2021/07/10/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="hello-hexo"><a href="#hello-hexo" class="headerlink" title="hello hexo"></a>hello hexo</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>软件安装</category>
+      </categories>
+      <tags>
+        <tag>博客搭建</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git出错10054</title>
+    <url>/2021/08/23/git%E5%87%BA%E9%94%9910054/</url>
+    <content><![CDATA[<p>最近在使用git时又报出来了这样一个错误“OpenSSL SSL_read: Connection was reset, errno 10054”，意思是OpenSSL SSL_read：连接已重置，错误号 10054 ，于是我就上网搜索了有关解决办法，下面的方法是我使用过真是不错的，我将分享给大家，希望能够帮助你们。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/Whisper609/Whisper609.github.io.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line">FATAL &#123;</span><br><span class="line">  err: Error: Spawn failed</span><br><span class="line">      at ChildProcess.&lt;anonymous&gt; (E:\Whiper609blog\Whisper609\node_modules\hexo-util\lib\spawn.js:51:21)</span><br><span class="line">      at ChildProcess.emit (events.js:400:28)</span><br><span class="line">      at ChildProcess.cp.emit (E:\Whiper609blog\Whisper609\node_modules\cross-spawn\lib\enoent.js:34:29)</span><br><span class="line">      at Process.ChildProcess._handle.onexit (internal/child_process.js:277:12) &#123;</span><br><span class="line">    code: 128</span><br><span class="line">  &#125;</span><br><span class="line">&#125; Something&#x27;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span><br></pre></td></tr></table></figure>
+
+<p>首先出现这个的原因是网络不稳定而导致的连接超时问题。</p>
+<h3 id="1-检查c盘下host文件访问的域名对应的ip是否正确"><a href="#1-检查c盘下host文件访问的域名对应的ip是否正确" class="headerlink" title="1.检查c盘下host文件访问的域名对应的ip是否正确"></a><strong>1.检查c盘下host文件访问的域名对应的ip是否正确</strong></h3><p>先在命令行窗口Ping一下github的地址，就可以获得github官网的IP地址</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">E:\Whiper609blog\Whisper609&gt;ping github.com</span><br><span class="line"></span><br><span class="line">正在 Ping github.com [140.82.114.4] 具有 32 字节的数据:</span><br><span class="line">来自 140.82.114.4 的回复: 字节=32 时间=267ms TTL=48</span><br><span class="line">来自 140.82.114.4 的回复: 字节=32 时间=255ms TTL=48</span><br><span class="line">来自 140.82.114.4 的回复: 字节=32 时间=247ms TTL=48</span><br><span class="line">来自 140.82.114.4 的回复: 字节=32 时间=262ms TTL=48</span><br><span class="line"></span><br><span class="line">140.82.114.4 的 Ping 统计信息:</span><br><span class="line">    数据包: 已发送 = 4，已接收 = 4，丢失 = 0 (0% 丢失)，</span><br><span class="line">往返行程的估计时间(以毫秒为单位):</span><br><span class="line">    最短 = 247ms，最长 = 267ms，平均 = 257ms</span><br></pre></td></tr></table></figure>
+
+<p>然后找到这个“C:\Windows\System32\drivers\etc”路径下的hosts文件，</p>
+<p>使用记事本打开对比上面ping的ip地址和记录的IP地址是否一致，一致说明IP地址没有错误，再对上传几次，若是没有用再尝试下面的方法。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">140.82.114.4 github.com</span><br><span class="line">4 × IPv4 github.global.ssl.fastly.net</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-解除ssl限制"><a href="#2-解除ssl限制" class="headerlink" title="2.解除ssl限制"></a><strong>2.解除ssl限</strong>制</h3><p>打开命令行模式，修改设置，解除ssl验证</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global http.sslVerify &quot;false&quot;</span><br></pre></td></tr></table></figure>
+
+<p>再上传即可。</p>
+]]></content>
+      <categories>
+        <category>问题帮助</category>
+      </categories>
+      <tags>
+        <tag>问题帮助</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>超星学习通课件下载方法</title>
+    <url>/2021/07/10/%E8%B6%85%E6%98%9F%E5%AD%A6%E4%B9%A0%E9%80%9A%E8%AF%BE%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="超星学习通课件下载"><a href="#超星学习通课件下载" class="headerlink" title="超星学习通课件下载"></a>超星学习通课件下载</h1><p>​       最近在学习通上学习的时候，发现自己需要有些课程的课件，但是这些课程里面的课件却不下载，索性在网上找到了一种可行的方法可以下载自己想要的课件。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">1.登录超星学习通电脑版。</span><br></pre></td></tr></table></figure>
+
+<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528104943930.png" alt="image-20210528104943930"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">2.打开你需要下载的课程的课件</span><br></pre></td></tr></table></figure>
+
+<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528105133419.png" alt="image-20210528105133419"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">3.在空白处鼠标右击，选择“检查”，或者同时按键盘&quot;Fn+F12&quot;键，出现如下界面</span><br></pre></td></tr></table></figure>
+
+<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528105455966.png" alt="image-20210528105455966"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">4.同时按&quot;Ctrl+F&quot;键，在出现的搜索框中输入&quot;objectid&quot;,再按回车，找到objectid</span><br></pre></td></tr></table></figure>
+
+<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528105739707.png" alt="image-20210528105739707"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">5.找&quot;objectid&quot;后面引号里的内容，如图复制下来,有几个文件就会有几个objectid。多个文件的话注意选择的Id。</span><br></pre></td></tr></table></figure>
+
+<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528110048848.png" alt="image-20210528110048848"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">6.在浏览器打开一个新的页面，输入http://cs.ananas.chaoxing.com/download/上面&quot;objectid&quot;后面引号里的内容，比如这里就是：</span><br><span class="line">http://cs.ananas.chaoxing.com/download/3934680559c726cd2e1a4bcc33caece0</span><br></pre></td></tr></table></figure>
+
+<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528111041572.png" alt="image-20210528111041572"></p>
+<p>下载原理：</p>
+<p>超星提供了 <img src="file:///C:\Users\Administrator\AppData\Roaming\Tencent\QQTempSys[5UQ[BL(6~BS2JV6W}N6[%S.png" alt="img"><a href="https://d0.ananas.chaoxing.com/download/">https://d0.ananas.chaoxing.com/download/</a> 接口，链接后加上对应课件的 objectid 即可获取到源文件。电脑上使用 Chrome 浏览器进入课程学习页面，打开开发者工具，在Console界面输入如下命令即可获取本页所有的 objectid：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">var attachments = document.getElementById(&#x27;iframe&#x27;).contentWindow.mArg.attachments;</span><br><span class="line">for (i=0;i&lt;attachments.length;i++)&#123;</span><br><span class="line">console.log(attachments[i].property.objectid</span><br></pre></td></tr></table></figure>
+
+<p>这样你就下载成功了老师的课件！！！</p>
+<p>本文主要参考了<a href="https://lmqyu.cn/1632.html%E3%80%82">https://lmqyu.cn/1632.html。</a></p>
+]]></content>
+      <categories>
+        <category>使用帮助</category>
+      </categories>
+      <tags>
+        <tag>使用帮助</tag>
+      </tags>
+  </entry>
+</search>
