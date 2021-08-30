@@ -3,7 +3,7 @@
   <entry>
     <title>git出错10054</title>
     <url>/2021/08/23/git%E5%87%BA%E9%94%9910054/</url>
-    <content><![CDATA[<p>最近在使用git时又报出来了这样一个错误“OpenSSL SSL_read: Connection was reset, errno 10054”，意思是OpenSSL SSL_read：连接已重置，错误号 10054 ，于是我就上网搜索了有关解决办法，下面的方法是我使用过真是不错的，我将分享给大家，希望能够帮助你们。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>最近在使用git时又报出来了这样一个错误“OpenSSL SSL_read: Connection was reset, errno 10054”，意思是OpenSSL SSL_read：连接已重置，错误号 10054 ，于是我就上网搜索了有关解决办法，下面的方法是我使用过真是不错的，我将分享给大家，希望能够帮助你们。</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/Whisper609/Whisper609.github.io.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line">FATAL &#123;</span><br><span class="line">  err: Error: Spawn failed</span><br><span class="line">      at ChildProcess.&lt;anonymous&gt; (E:\Whiper609blog\Whisper609\node_modules\hexo-util\lib\spawn.js:51:21)</span><br><span class="line">      at ChildProcess.emit (events.js:400:28)</span><br><span class="line">      at ChildProcess.cp.emit (E:\Whiper609blog\Whisper609\node_modules\cross-spawn\lib\enoent.js:34:29)</span><br><span class="line">      at Process.ChildProcess._handle.onexit (internal/child_process.js:277:12) &#123;</span><br><span class="line">    code: 128</span><br><span class="line">  &#125;</span><br><span class="line">&#125; Something&#x27;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span><br></pre></td></tr></table></figure>
 
 <p>首先出现这个的原因是网络不稳定而导致的连接超时问题。</p>
@@ -31,7 +31,7 @@
   <entry>
     <title>Whisper609&#39;s blog</title>
     <url>/2021/07/10/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="hello-hexo"><a href="#hello-hexo" class="headerlink" title="hello hexo"></a>hello hexo</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
@@ -55,7 +55,7 @@
   <entry>
     <title>超星学习通课件下载方法</title>
     <url>/2021/07/10/%E8%B6%85%E6%98%9F%E5%AD%A6%E4%B9%A0%E9%80%9A%E8%AF%BE%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="超星学习通课件下载"><a href="#超星学习通课件下载" class="headerlink" title="超星学习通课件下载"></a>超星学习通课件下载</h1><p>​       最近在学习通上学习的时候，发现自己需要有些课程的课件，但是这些课程里面的课件却不下载，索性在网上找到了一种可行的方法可以下载自己想要的课件。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="超星学习通课件下载"><a href="#超星学习通课件下载" class="headerlink" title="超星学习通课件下载"></a>超星学习通课件下载</h1><p>​       最近在学习通上学习的时候，发现自己需要有些课程的课件，但是这些课程里面的课件却不下载，索性在网上找到了一种可行的方法可以下载自己想要的课件。</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">1.登录超星学习通电脑版。</span><br></pre></td></tr></table></figure>
 
 <p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528104943930.png" alt="image-20210528104943930"></p>
