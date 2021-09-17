@@ -163,20 +163,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -226,6 +226,109 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://whisper609.github.io/2021/09/17/hexo%E6%96%87%E7%AB%A0%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/author.jpeg">
+      <meta itemprop="name" content="Whisper609">
+      <meta itemprop="description" content="Yes,I can do it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Whisper609's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/09/17/hexo%E6%96%87%E7%AB%A0%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" class="post-title-link" itemprop="url">hexo文章插入图片</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-09-17 16:13:19 / Modified: 17:22:13" itemprop="dateCreated datePublished" datetime="2021-09-17T16:13:19+08:00">2021-09-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/hexo%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">hexo技术</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2021/09/17/hexo%E6%96%87%E7%AB%A0%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" class="post-meta-item leancloud_visitors" data-flag-title="hexo文章插入图片" title="Views">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="一、插入本地图片"><a href="#一、插入本地图片" class="headerlink" title="一、插入本地图片"></a>一、插入本地图片</h2><p>插入本地图片时统一将本地图片放在博客文件source/images文件夹下，</p>
+<p>若没有在source目录下没有images文件夹则创建。</p>
+<img src="/images/iimage.jpg">
+
+<p><strong>插入图片也有两种语法可以使用，一种是markdown语法，另一种是html语法。</strong></p>
+<p>markdown语法：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">![](images/ddd.jpg)</span><br><span class="line">[]中是图片的提示文字,()里面是图片的地址，例：![pp](images/ddd.jpg)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/ddd.jpg" alt="pp"></p>
+<p>html语法：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;images/ddd.jpg&quot;&gt;</span><br><span class="line">统一格式为&lt;img src=&quot;&quot;&gt;，&quot;&quot;中间写上图片的地址，若想对这张图片也出现提示文字，则需要在后面添上alt=&quot;&quot;，例：&lt;img src=&quot;images/ddd.jpg&quot; alt=&quot;ppp&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<img src="/images/ddd.jpg" alt="ppp">
+
+<h2 id="二、插入网络图片"><a href="#二、插入网络图片" class="headerlink" title="二、插入网络图片"></a>二、插入网络图片</h2><p>在浏览器上找到自己想要的图片，在新标签页打开图片，鼠标右键点击，找到图片的链接地址，如下（后面带有png、jpg、jpeg后缀是图片格式）：</p>
+<img src="/images/hadoop.jpg">
+
+<p><strong>同样插入网络图片也有两种方式：markdown格式和html格式。</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">markdown格式:</span><br><span class="line">![](网络图片地址)</span><br><span class="line">html格式:</span><br><span class="line">&lt;img src=&quot;网络图片地址&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://www.xsky.com/wp-content/uploads/2019/09/640.jpeg" alt="markdown"></p>
+<img src="https://www.xsky.com/wp-content/uploads/2019/09/640.jpeg" alt="html">
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
