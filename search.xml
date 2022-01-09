@@ -3,7 +3,7 @@
   <entry>
     <title>Java安装教程</title>
     <url>/2021/09/17/Java%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="一、下载安装工具"><a href="#一、下载安装工具" class="headerlink" title="一、下载安装工具"></a>一、下载安装工具</h2><p>1.java现在是oracle公司下的产品，我们想要安装java先到官网上下载安装工具。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="一、下载安装工具"><a href="#一、下载安装工具" class="headerlink" title="一、下载安装工具"></a>一、下载安装工具</h2><p>1.java现在是oracle公司下的产品，我们想要安装java先到官网上下载安装工具。</p>
 <p><strong>官网地址：<a href="https://www.oracle.com/index.html">https://www.oracle.com/index.html</a></strong></p>
 <img src="/images/image1.jpg">
 
@@ -104,7 +104,7 @@
   <entry>
     <title>git出错10054</title>
     <url>/2021/08/23/git%E5%87%BA%E9%94%9910054/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>最近在使用git时又报出来了这样一个错误“OpenSSL SSL_read: Connection was reset, errno 10054”，意思是OpenSSL SSL_read：连接已重置，错误号 10054 ，于是我就上网搜索了有关解决办法，下面的方法是我使用过真是不错的，我将分享给大家，希望能够帮助你们。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>最近在使用git时又报出来了这样一个错误“OpenSSL SSL_read: Connection was reset, errno 10054”，意思是OpenSSL SSL_read：连接已重置，错误号 10054 ，于是我就上网搜索了有关解决办法，下面的方法是我使用过真是不错的，我将分享给大家，希望能够帮助你们。</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/Whisper609/Whisper609.github.io.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line">FATAL &#123;</span><br><span class="line">  err: Error: Spawn failed</span><br><span class="line">      at ChildProcess.&lt;anonymous&gt; (E:\Whiper609blog\Whisper609\node_modules\hexo-util\lib\spawn.js:51:21)</span><br><span class="line">      at ChildProcess.emit (events.js:400:28)</span><br><span class="line">      at ChildProcess.cp.emit (E:\Whiper609blog\Whisper609\node_modules\cross-spawn\lib\enoent.js:34:29)</span><br><span class="line">      at Process.ChildProcess._handle.onexit (internal/child_process.js:277:12) &#123;</span><br><span class="line">    code: 128</span><br><span class="line">  &#125;</span><br><span class="line">&#125; Something&#x27;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span><br></pre></td></tr></table></figure>
 
 <p>首先出现这个的原因是网络不稳定而导致的连接超时问题。</p>
@@ -130,9 +130,82 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo插入音乐播放器</title>
+    <url>/2021/09/21/hexo%E6%8F%92%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><img src="/images/ddd.jpg" alt="ppp">
+
+]]></content>
+      <categories>
+        <category>hexo技术</category>
+      </categories>
+      <tags>
+        <tag>hexo技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo文章中插入视频</title>
+    <url>/2021/09/18/hexo%E6%96%87%E7%AB%A0%E4%B8%AD%E6%8F%92%E5%85%A5%E8%A7%86%E9%A2%91/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>推荐插入视频的话可以先让视频上传到YouTube、BilBili等视频网站，这样可以分享链接来插入文章中，更好节约空间，减少出错率。</p>
+<img src="/images/image7.jpg">
+
+<p>插入后效果如下：</p>
+<iframe src="//player.bilibili.com/player.html?aid=51977489&bvid=BV144411Y7mp&cid=90991841&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+]]></content>
+      <categories>
+        <category>hexo技术</category>
+      </categories>
+      <tags>
+        <tag>hexo技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo文章插入图片</title>
+    <url>/2021/09/17/hexo%E6%96%87%E7%AB%A0%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="一、插入本地图片"><a href="#一、插入本地图片" class="headerlink" title="一、插入本地图片"></a>一、插入本地图片</h2><p>插入本地图片时统一将本地图片放在博客文件source/images文件夹下，</p>
+<p>若没有在source目录下没有images文件夹则创建。</p>
+<img src="/images/iimage.jpg">
+
+<p><strong>插入图片也有两种语法可以使用，一种是markdown语法，另一种是html语法。</strong></p>
+<p>markdown语法：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">![](images/ddd.jpg)</span><br><span class="line">[]中是图片的提示文字,()里面是图片的地址，例：![pp](images/ddd.jpg)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/ddd.jpg" alt="pp"></p>
+<p>html语法：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;img src=&quot;images/ddd.jpg&quot;&gt;</span><br><span class="line">统一格式为&lt;img src=&quot;&quot;&gt;，&quot;&quot;中间写上图片的地址，若想对这张图片也出现提示文字，则需要在后面添上alt=&quot;&quot;，例：&lt;img src=&quot;images/ddd.jpg&quot; alt=&quot;ppp&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<img src="/images/ddd.jpg" alt="ppp">
+
+<h2 id="二、插入网络图片"><a href="#二、插入网络图片" class="headerlink" title="二、插入网络图片"></a>二、插入网络图片</h2><p>在浏览器上找到自己想要的图片，在新标签页打开图片，鼠标右键点击，找到图片的链接地址，如下（后面带有png、jpg、jpeg后缀是图片格式）：</p>
+<img src="/images/hadoop.jpg">
+
+<p><strong>同样插入网络图片也有两种方式：markdown格式和html格式。</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">markdown格式:</span><br><span class="line">![](网络图片地址)</span><br><span class="line">html格式:</span><br><span class="line">&lt;img src=&quot;网络图片地址&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://www.xsky.com/wp-content/uploads/2019/09/640.jpeg" alt="markdown"></p>
+<img src="https://www.xsky.com/wp-content/uploads/2019/09/640.jpeg" alt="html">
+
+<p>若想将插入的图片放大缩小，则需要在添加的图片后面加上长宽或者长宽的比例，如：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;img src=&quot;图片地址&quot; width=&quot;200&quot; height=&quot;300&quot;&gt;</span><br><span class="line">或者</span><br><span class="line">&lt;img src=&quot;图片地址&quot; width=&quot;50%&quot; height=&quot;50%&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>1.将图片设置长200，宽300</p>
+<img src="/images/ddd.jpg" width="200" height="300">
+
+<p>2.将图片的长宽都设置为原来的50%</p>
+<img src="/images/ddd.jpg" width="50%" height="50%">
+
+]]></content>
+      <categories>
+        <category>hexo技术</category>
+      </categories>
+      <tags>
+        <tag>hexo技术</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Whisper609&#39;s blog</title>
     <url>/2021/07/10/hello-world/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="hello-hexo"><a href="#hello-hexo" class="headerlink" title="hello hexo"></a>hello hexo</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
@@ -154,26 +227,9 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo文章中插入视频</title>
-    <url>/2021/09/18/hexo%E6%96%87%E7%AB%A0%E4%B8%AD%E6%8F%92%E5%85%A5%E8%A7%86%E9%A2%91/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>推荐插入视频的话可以先让视频上传到YouTube、BilBili等视频网站，这样可以分享链接来插入文章中，更好节约空间，减少出错率。</p>
-<img src="/images/image7.jpg">
-
-<p>插入后效果如下：</p>
-<iframe src="//player.bilibili.com/player.html?aid=51977489&bvid=BV144411Y7mp&cid=90991841&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
-]]></content>
-      <categories>
-        <category>hexo技术</category>
-      </categories>
-      <tags>
-        <tag>hexo技术</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>超星学习通课件下载方法</title>
     <url>/2021/07/10/%E8%B6%85%E6%98%9F%E5%AD%A6%E4%B9%A0%E9%80%9A%E8%AF%BE%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="超星学习通课件下载"><a href="#超星学习通课件下载" class="headerlink" title="超星学习通课件下载"></a>超星学习通课件下载</h1><p>​       最近在学习通上学习的时候，发现自己需要有些课程的课件，但是这些课程里面的课件却不下载，索性在网上找到了一种可行的方法可以下载自己想要的课件。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="超星学习通课件下载"><a href="#超星学习通课件下载" class="headerlink" title="超星学习通课件下载"></a>超星学习通课件下载</h1><p>​       最近在学习通上学习的时候，发现自己需要有些课程的课件，但是这些课程里面的课件却不下载，索性在网上找到了一种可行的方法可以下载自己想要的课件。</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">1.登录超星学习通电脑版。</span><br></pre></td></tr></table></figure>
 
 <p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528104943930.png" alt="image-20210528104943930"></p>
@@ -207,37 +263,62 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo文章插入图片</title>
-    <url>/2021/09/17/hexo%E6%96%87%E7%AB%A0%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="一、插入本地图片"><a href="#一、插入本地图片" class="headerlink" title="一、插入本地图片"></a>一、插入本地图片</h2><p>插入本地图片时统一将本地图片放在博客文件source/images文件夹下，</p>
-<p>若没有在source目录下没有images文件夹则创建。</p>
-<img src="/images/iimage.jpg">
+    <title>免费追剧tips</title>
+    <url>/2021/12/28/%E5%85%8D%E8%B4%B9%E8%BF%BD%E5%89%A7tips/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>我们在空闲的时候都喜欢看剧来放松自己，我本人也是很喜欢看一些剧和综艺。甚至为了追剧买过腾讯、优酷、芒果…..等各大平台的会员，最后还是需要不断的充钱充钱充钱。为了不再花更多的钱也能让我更好的追剧，我便搜索一些可以免费看剧的方法，这些都是我自己试过之后感觉还可以的包括一些平台，也包括一些其他的方法，希望能够分享给大家。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">1.大师兄影视</span><br></pre></td></tr></table></figure>
 
-<p><strong>插入图片也有两种语法可以使用，一种是markdown语法，另一种是html语法。</strong></p>
-<p>markdown语法：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">![](images/ddd.jpg)</span><br><span class="line">[]中是图片的提示文字,()里面是图片的地址，例：![pp](images/ddd.jpg)</span><br></pre></td></tr></table></figure>
+<p>这个软件是我一年前在看见一位大佬推荐后下载的，它的头像如下图所示，就是大师兄（孙悟空）的。</p>
+<img src="/images/dsxys.jpg" width="50%" height="50%">
 
-<p><img src="/images/ddd.jpg" alt="pp"></p>
-<p>html语法：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;img src=&quot;images/ddd.jpg&quot;&gt;</span><br><span class="line">统一格式为&lt;img src=&quot;&quot;&gt;，&quot;&quot;中间写上图片的地址，若想对这张图片也出现提示文字，则需要在后面添上alt=&quot;&quot;，例：&lt;img src=&quot;images/ddd.jpg&quot; alt=&quot;ppp&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>刚开始下载后我的手机就爆出了错误，然后我就去官网（<a href="https://dsxys.com/app/%EF%BC%89%E6%9F%A5%E7%9C%8B%E8%AF%B4%E6%98%8E%EF%BC%8C%E4%B8%8B%E8%BD%BD%E5%90%8E%E5%B0%86%E5%AE%83%E5%8A%A0%E5%85%A5%E6%89%8B%E6%9C%BA%E7%99%BD%E5%90%8D%E5%8D%95%EF%BC%8C%E4%B8%8D%E5%86%8D%E5%87%BA%E7%8E%B0%E9%94%99%E8%AF%AF%E3%80%82">https://dsxys.com/app/）查看说明，下载后将它加入手机白名单，不再出现错误。</a></p>
+<img src="/images/20211228013737.jpg" width="50%" height="50%">
 
-<img src="/images/ddd.jpg" alt="ppp">
+<p>大师兄首页有很多分类，包括电影、综艺、连续剧等等，国内国外的都可以看。你不需要注册信息就可以观看各种电视电影，我常用它来看看国内的综艺，它更新的速度也很快。但可能唯一的缺点就是更新的的频繁，也是它在不断修复bug，所以难免会要更新，但是这也不影响我追剧的心情。</p>
+<img src="/images/dsx.jpg" width="50%" height="50%">
 
-<h2 id="二、插入网络图片"><a href="#二、插入网络图片" class="headerlink" title="二、插入网络图片"></a>二、插入网络图片</h2><p>在浏览器上找到自己想要的图片，在新标签页打开图片，鼠标右键点击，找到图片的链接地址，如下（后面带有png、jpg、jpeg后缀是图片格式）：</p>
-<img src="/images/hadoop.jpg">
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">2.泰剧迷</span><br></pre></td></tr></table></figure>
 
-<p><strong>同样插入网络图片也有两种方式：markdown格式和html格式。</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">markdown格式:</span><br><span class="line">![](网络图片地址)</span><br><span class="line">html格式:</span><br><span class="line">&lt;img src=&quot;网络图片地址&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>如果说大师兄是我看国内影视常用的软件，那么泰剧迷就是追海外剧常用的软件。一定是这个这个粉色图标的泰剧迷。</p>
+<img src="/images/20211228011519.jpg" width="50%" height="50%">
 
-<p><img src="https://www.xsky.com/wp-content/uploads/2019/09/640.jpeg" alt="markdown"></p>
-<img src="https://www.xsky.com/wp-content/uploads/2019/09/640.jpeg" alt="html">
+<p>泰剧迷不仅能够看泰剧、还可以追韩剧、日剧、美剧、英剧等，更新速度也是杠杠的，靠它基本能够满足看海外剧的需求。</p>
+<img src="/images/tjm.jpg" width="50%" height="50%">
+
+<p>下载方法如下：</p>
+<img src="/images/taijumi.jpg">
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">3.油猴插件</span><br></pre></td></tr></table></figure>
+
+<p>Tampermonkey（油猴）是一款免费的浏览器插件，通过编写脚本可以让用户直接控制修改网页内容，改善网页体验它适用于 Chrome, Microsoft Edge, Safari, Opera Next, 和 Firefox。油猴脚本可以相互分享，安装过油猴后，在Greasemonkey上可以搜索各种各样实用的插件并安装，就可以直接使用别人写好的脚本。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">安装过程：</span><br></pre></td></tr></table></figure>
+
+<p>一般是在百度上直接搜索油猴就会出现，点进去就会出现各种适合 Chrome, Microsoft Edge, Safari, Opera Next, 和 Firefox浏览器的版本。</p>
+<img src="/images/yh1.jpg">
+
+<p>现将chrome浏览器的安装方法演示：</p>
+<p>若直接点击安装Tampermonkey可能打开如下</p>
+<img src="/images/yh2.jpg" width="70%" height="70%">
+
+<p>原因是因为这个插件需要在国外的网站上下载，所以我直接将这个插件压缩，放在下面这个地址，如若需要则下载安装：</p>
+<p><strong>油猴安装包链接：</strong></p>
+<p><a href="https://pan.baidu.com/s/1ZYeI5awD-SuRjasNGOO_OA">https://pan.baidu.com/s/1ZYeI5awD-SuRjasNGOO_OA</a><br>      提取码：ydfy </p>
+<p>下载安装包后直接解压，按照下面的步骤打开chrome扩展程序。</p>
+<img src="/images/yh3.jpg">
+
+<p>打开扩展程序后，可以直接将.cxr的文件拉入扩展程序中或者按“加载已解压的扩展程序”，选择解压后的文件即可。</p>
+<p><strong>安装完油猴后并没有结束，接着进入<a href="https://greasyfork.org/zh-CN">Greasyfork</a> 网站，在里面搜索“全网VIP视频免费”就可以出现好多插件，选择你想安装的进行安装</strong></p>
+<img src="/images/qw1.jpg">
+
+<p>当你打开爱奇艺（腾讯视频\优酷\芒果等等），选择你想要看的VIP视频，左侧就会出现如下图所示的多条解析路径。选择一条路径即可，如果解析不出来则换另外一条路径。</p>
+<img src="/images/qw2.jpg">
 
 ]]></content>
       <categories>
-        <category>hexo技术</category>
+        <category>软件推荐</category>
       </categories>
       <tags>
-        <tag>hexo技术</tag>
+        <tag>软件推荐</tag>
       </tags>
   </entry>
 </search>
