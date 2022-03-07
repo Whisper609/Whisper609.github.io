@@ -163,20 +163,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -226,6 +226,304 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://whisper609.github.io/2022/03/07/hadoop%E9%9B%86%E7%BE%A4%E7%9A%84%E6%90%AD%E5%BB%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/author.jpeg">
+      <meta itemprop="name" content="Whisper609">
+      <meta itemprop="description" content="Yes,I can do it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Whisper609's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/07/hadoop%E9%9B%86%E7%BE%A4%E7%9A%84%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">hadoop集群的搭建</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-03-07 17:42:10 / Modified: 18:11:52" itemprop="dateCreated datePublished" datetime="2022-03-07T17:42:10+08:00">2022-03-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Hadoop/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>13k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>12 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="1-实验环境需求"><a href="#1-实验环境需求" class="headerlink" title="1.实验环境需求"></a>1.实验环境需求</h2><p>操作系统：CentOS 8操作系统</p>
+<p>计算机资源：CPU 1核 0.5GHz 内存 0.5GB 硬盘 10.00GB</p>
+<h2 id="2-实验原理"><a href="#2-实验原理" class="headerlink" title="2.实验原理"></a>2.<strong>实验原理</strong></h2><p>在工程环境中，往往需要在Linux环境下进行Hadoop的安装和部署，但是在一些主流的操作系统如UNIX、Windows上Hadoop也可以很好的运行，在本实验中我们在Linux操作系统中进行Hadoop的相关实验操作，我们使用的Linux操作系统版本是CentOS 8。</p>
+<p>在Linux上进行Hadoop的安装部署流程如下：</p>
+<ol>
+<li><p><strong>安装配置JDK1.7（或更高版本）。Hadoop是用Java编写的程序，Hadoop的编译及MapReduce的运行都需要使用JDK，因此在安装Hadoop前，必须安装JDK1.7或更高版本。</strong></p>
+</li>
+<li><p><strong>主机名配置：在大型的Hadoop集群中，往往由成百上千个节点组成，如果通过IP地址对不同节点进行管理，那么集群维护的工作量将会十分繁重，因此在工程环境中，常常通过对每个节点设置唯一的主机名，从而实现对节点进行管理。</strong></p>
+</li>
+<li><p><strong>SElinux安全配置：CentOS默认启用了SElinux，在网络服务方面权限要求比较严格，因此我们需要对SElinux安全配置进行更改。</strong></p>
+</li>
+<li><p><strong>SSH（安全外壳协议）免密码登录配置，推荐安装OpenSSH。Hadoop需要通过SSH来启动Slave列表中各台主机的守护进程，因此SSH也是必须安装的，即使是安装伪分布式版本（因为Hadoop并没有区分开集群式和伪分布式）。对于伪分布式，Hadoop会采用与集群相同的处理方式，即按次序启动文件conf/slaves中记载的主机上的进程，只不过在伪分布式中Slave为localhost（即为自身），所以对于伪分布式Hadoop，SSH一样是必需的。</strong></p>
+</li>
+<li><p><strong>Hadoop核心配置。Hadoop的稳定运行需要依赖于其核心配置文件，因此当上述准备工作就绪后，我们便需要着重进行配置文件编写来实现Hadoop的可靠运行。</strong></p>
+</li>
+</ol>
+<h2 id="3-安装Hadoop环境准备"><a href="#3-安装Hadoop环境准备" class="headerlink" title="3.安装Hadoop环境准备"></a>3.安装Hadoop环境准备</h2><h3 id="1-安装配置JDK-1-8"><a href="#1-安装配置JDK-1-8" class="headerlink" title="1.安装配置JDK 1.8"></a>1.<strong>安装配置JDK 1.8</strong></h3><p>首先查看linux系统版本，安装和Linux系统相同版本的JDK</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">查看命令</span><br><span class="line">uname -r</span><br><span class="line">3.10.0-1160.el7.x86_64 #在此安装的是x86_64版本的，所以JDK也要安装64位</span><br></pre></td></tr></table></figure>
+
+<p>我们可以在Oracle JDK的官网下载与Linux相应版本的JDK，官网地址为：<a target="_blank" rel="noopener" href="http://www.oracle.com/technetwork/java/javase/downloads/index.html%EF%BC%8C%E4%B8%8B%E8%BD%BD%E5%AE%8C%E6%88%90%E5%90%8E%E5%B0%86%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%B8%8A%E4%BC%A0%E5%88%B0%E7%B3%BB%E7%BB%9F%E4%B8%AD%E3%80%82">http://www.oracle.com/technetwork/java/javase/downloads/index.html，下载完成后将压缩包上传到系统中。</a></p>
+<p><em><strong>上传文件可以使用<a target="_blank" rel="noopener" href="http://www.hostbuf.com/t/988.html">FinalShell</a>工具，远程连接成功后，直接将软件包拖入某个文件夹下即可上传文件。</strong></em></p>
+<p>在此我将压缩包都放入/usr/software文件夹下，后面不再赘述。</p>
+<img src="/images/image-20220307091820673-16466465109501.png">
+
+<p>1.<em>首先创建一个工作路径，如下，我是在在/usr目录下建立名为dsy的工作路径</em></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /usr/dsy</span><br></pre></td></tr></table></figure>
+
+<img src="/images/image-20220307092020939-16466465109512.png">
+
+<p>2.<em>解压安装包，将下载好的java jdk安装包解压到刚刚创建好的路径中</em></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf /usr/software/jdk-8u321-linux-x64.tar.gz -C /usr/dsy</span><br></pre></td></tr></table></figure>
+
+<img src="/images/image-20220307093651092-16466465109513.png">
+
+<p>3.<em>配置环境变量</em></p>
+<p><em>使用vi编辑器打开 ~/.bashrc文件</em></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<p><em>配置Java JDK环境变量，在~/.bashrc文件中添加如下内容：</em></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=解压的JDK路径</span><br><span class="line">export PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/jre/lib/tools.jar</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<img src="/images/image-20220307092551625-16466465109514.png">
+
+<p>添加完成，按Esc键，然后输入“：wq”保存退出。</p>
+<p>4.<em>更新环境变量</em></p>
+<p>使用source命令更新环境变量</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source  ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<p>5.<em>检查JDK是否配置成功</em></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br><span class="line">出现版本号说明安装成功</span><br></pre></td></tr></table></figure>
+
+<img src="/images/image-20220307093824009-16466465109515.png">
+
+<h3 id="2-主机名配置"><a href="#2-主机名配置" class="headerlink" title="2.主机名配置"></a>2.<strong>主机名配置</strong></h3><p>1.<strong>编辑主机名，使用vi编辑器编辑主机名配置文件</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi  /etc/sysconfig/network</span><br></pre></td></tr></table></figure>
+
+<p>修改主机名HOSTNAME为master</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NETWORKING=yes</span><br><span class="line">HOSTNAME=master（修改为实际的主机名master)</span><br></pre></td></tr></table></figure>
+
+<img src="/images/image-20220307093952992-16466465109516.png">
+
+<p><em>更改后的内容会在下次系统重启的时候生效，通过下列命令重新启动系统：</em></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
+
+<p>2.<strong>IP地址与主机名映射文件配置</strong></p>
+<p>通过下列命令使用vi编辑器编辑主机名映射文件hosts文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi  /etc/hosts</span><br></pre></td></tr></table></figure>
+
+<p>打开后的文件内容如下所示：</p>
+<img src="/images/image-20220307094515135-16466465109517.png">
+
+<p>增加主机名与IP地址的映射关系：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1 master</span><br></pre></td></tr></table></figure>
+
+<img src="/images/image-20220307094637965-16466465109518.png">
+
+<p>检测主机名与IP映射是否配置成功：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# ping master -c 4</span><br><span class="line">PING master (127.0.0.1) 56(84) bytes of data.</span><br><span class="line">64 bytes from master (127.0.0.1): icmp_seq=1 ttl=64 time=0.071 ms</span><br><span class="line">64 bytes from master (127.0.0.1): icmp_seq=2 ttl=64 time=0.052 ms</span><br><span class="line">64 bytes from master (127.0.0.1): icmp_seq=3 ttl=64 time=0.055 ms</span><br><span class="line">64 bytes from master (127.0.0.1): icmp_seq=4 ttl=64 time=0.042 ms</span><br><span class="line"></span><br><span class="line">--- master ping statistics ---</span><br><span class="line">4 packets transmitted, 4 received, 0% packet loss, time 3004ms</span><br><span class="line">rtt min/avg/max/mdev = 0.042/0.055/0.071/0.010 ms</span><br><span class="line">能够ping通说明配置成功</span><br></pre></td></tr></table></figure>
+
+<p><em><strong>如果无法进行正常的报文发送，请检查主机名是否配置错误，同时请检查主机名与IP地址映射是否配置正确。</strong></em></p>
+<h3 id="3-SElinux安全配置"><a href="#3-SElinux安全配置" class="headerlink" title="3.SElinux安全配置"></a>3.SElinux安全配置</h3><p>CentOS默认启用了SElinux，在网络服务方面权限要求比较严格，因此我们需要将SElinux关闭。</p>
+<p>1.<strong>首先先打开SElinux配置文件</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/selinux/config</span><br><span class="line"><span class="meta">#</span><span class="bash"> This file controls the state of SELinux on the system.</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> SELINUX= can take one of these three values:</span></span><br><span class="line"><span class="meta">#</span><span class="bash">     enforcing - SELinux security policy is enforced.</span></span><br><span class="line"><span class="meta">#</span><span class="bash">     permissive - SELinux prints warnings instead of enforcing.</span></span><br><span class="line"><span class="meta">#</span><span class="bash">     disabled - No SELinux policy is loaded.</span></span><br><span class="line">SELINUX=disabled（需要修改的行）</span><br><span class="line"><span class="meta">#</span><span class="bash"> SELINUXTYPE= can take one of three values:</span></span><br><span class="line"><span class="meta">#</span><span class="bash">     targeted - Targeted processes are protected,</span></span><br><span class="line"><span class="meta">#</span><span class="bash">     minimum - Modification of targeted policy. Only selected processes are protected.</span></span><br><span class="line"><span class="meta">#</span><span class="bash">     mls - Multi Level Security protection.</span></span><br><span class="line">SELINUXTYPE=targeted</span><br></pre></td></tr></table></figure>
+
+<p>若需要修改的行为“SELINUX=permissive”，则将它修改为“SELINUX=disabled”；若直接为“SELINUX=disabled”，则不需修改。disabled是不可用的意思，编辑完成后保存文件并退出vi编辑器。</p>
+<p>2.<strong>SElinux配置强制生效</strong></p>
+<p>更改后的内容会在下次系统重启的时候生效，为了操作便捷性，我们可以使用下列命令使更改即时生效，而不需要重新启动系统。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setenforce 0</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-配置SSH免密码登录"><a href="#4-配置SSH免密码登录" class="headerlink" title="4.配置SSH免密码登录"></a>4.配置SSH免密码登录</h3><p>1.<strong>生成秘钥</strong>，输入下面的命令，生成本机密钥文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# ssh-keygen -t （通过dsa加密方式对秘钥进行加密）</span><br><span class="line">Generating public/private dsa key pair.</span><br><span class="line">Enter file in which to save the key (/root/.ssh/id_dsa): （注：按回车即可）</span><br><span class="line">Created directory &#x27;/root/.ssh&#x27;.</span><br><span class="line">Enter passphrase (empty for no passphrase): （注：按回车即可）</span><br><span class="line">Enter same passphrase again: （注：按回车即可）</span><br><span class="line">Your identification has been saved in /root/.ssh/id_dsa.</span><br><span class="line">（注：生成的私钥文件位置）</span><br><span class="line">Your public key has been saved in /root/.ssh/id_dsa.pub.</span><br><span class="line">（注：生成的公钥文件位置）</span><br><span class="line">The key fingerprint is:</span><br><span class="line">SHA256:yCNMfjTp1RKuqVjUh5B8+pTh3ETf3IaWNcVLV7yzYnU root@localhost.localdomain</span><br><span class="line">The key&#x27;s randomart image is:</span><br><span class="line">+---[DSA 1024]----+</span><br><span class="line">|   ... .o     o++|</span><br><span class="line">|    ooo+.+ o = o+|</span><br><span class="line">|    o=*== o * + +|</span><br><span class="line">|   =.+=B.. . . =E|</span><br><span class="line">|    =oO S     . +|</span><br><span class="line">|   o +..     o . |</span><br><span class="line">|  . .       . .  |</span><br><span class="line">|                 |</span><br><span class="line">|                 |</span><br><span class="line">+----[SHA256]-----+</span><br></pre></td></tr></table></figure>
+
+<p>查看~/.ssh目录下的文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls ~/.ssh</span><br></pre></td></tr></table></figure>
+
+<p>可以看到在~/.ssh目录下已经生成了id_dsa.pub（本机的公钥）和id_dsa（本机的私钥）文件：</p>
+<img src="/images/image-20220307100555114-16466465109519.png">
+
+<p>2.<strong>秘钥分发</strong></p>
+<p>把当前节点的公钥文件id_dsa.pub内容输出追加到任意节点的<del>/.ssh/authorized_keys文件的末尾，则在被添加的节点上便可以免密码登录到当前的节点（由于我们是单节点部署，因此直接追加到当前节点的</del>/.ssh/authorized_keys文件中即可），输入命令如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_dsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+
+<p>上述命令运行完成后我们再次查看~/.ssh目录下的文件，可以看到已经创建了authorized_keys文件：</p>
+<img src="/images/image-20220307101048217-164664651095110.png">
+
+<p>3.<strong>验证免密码登录是否配置成功</strong></p>
+<p>下列命令通过设置的主机名进行连接，可以验证免密码登录是否配置成功：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh master</span><br></pre></td></tr></table></figure>
+
+<p>一次登录的时候，会询问是否继续连接，输入yes即可进入，当第二次进行连接的时候则不会再出现此提示（***如果无法正常连接，请检查是否完成秘钥分发步骤操作***）：</p>
+<img src="/images/image-20220307101345836-164664651095211.png">
+
+<p>连接成功后，我们需要通过下列命令退出连接：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# exit</span><br><span class="line">登出</span><br><span class="line">Connection to master closed.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在Hadoop的安装过程中，配置免密码登录与否是无关紧要的，但是如果不配置免密码登录，每次启动Hadoop都需要输入密码才能登录到集群中的每台机器上，考虑到一般的Hadoop集群往往拥有数百台机器，因此一般来说都会配置集群节点间SSH免密码登录。</p>
+<h2 id="4-安装配置Hadoop"><a href="#4-安装配置Hadoop" class="headerlink" title="4.安装配置Hadoop"></a>4.安装配置Hadoop</h2><p>Hadoop分别从三个角度将集群中的主机划分为两种角色。从集群管理来讲，将集群中的主机划分为Master和Slave；从HDFS的角度来讲，将集群中的主机划分为NameNode和DateNode（在分布式文件系统中，目录的管理很重要，而NameNode就是目录管理者）；从MapReduce的角度来讲，将主机划分为ResourceManager、ApplicationMaster和NodeManager。</p>
+<p>Hadoop有官方发行的开源版本，以及CDH等多个商用版本，这里我们主要介绍Hadoop官方发行版的安装方法。可以从以下地址获得Hadoop的官方发行版：</p>
+<p><a target="_blank" rel="noopener" href="http://www.apache.org/dyn/closer.cgi/Hadoop/core/">http://www.apache.org/dyn/closer.cgi/Hadoop/core/</a></p>
+<p>Hadoop有三种运行方式：单机模式、伪分布式与完全分布式。乍看之下，前两种方式并不能体现云计算的优势，但是它们便于程序的测试与调试，所以还是很有意义的。安装单机模式的Hadoop无须配置，在这种方式下，Hadoop被认为是一个单独的Java进程，这种方式经常用来调试。安装伪分布式Hadoop的配置过程也很简单，只需要修改几个文件，可以把伪分布式的Hadoop看做只有一个节点的集群。</p>
+<h3 id="1-解压安装文件"><a href="#1-解压安装文件" class="headerlink" title="1. 解压安装文件"></a>1. <strong>解压安装文件</strong></h3><p>解压Hadoop安装文件，将文件解压到/usr/dsy目录下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf /usr/software/hadoop-2.7.7.tar.gz -C /usr/dsy</span><br></pre></td></tr></table></figure>
+
+<img src="/images/image-20220307102214299-164664651095212.png">
+
+<h3 id="2-配置Hadoop环境变量"><a href="#2-配置Hadoop环境变量" class="headerlink" title="2.配置Hadoop环境变量"></a>2.配置Hadoop环境变量</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi  ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<p>在~/.bashrc文件中增加以下内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">（-------------------省略------------------------）</span><br><span class="line">export HADOOP_HOME=/usr/dsy/hadoop-2.7.7</span><br><span class="line">export PATH=$PATH:$HADOOP_HOME/bin:$PATH</span><br><span class="line">export PATH=$PATH:$HADOOP_HOME/sbin:$PATH</span><br></pre></td></tr></table></figure>
+
+<p>执行如下命令，更新环境变量：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source  ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<p>通过下列命令验证Hadoop环境变量是否配置成功：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# hadoop</span><br><span class="line">Usage: hadoop [--config confdir] [COMMAND | CLASSNAME]</span><br><span class="line">  CLASSNAME            run the class named CLASSNAME</span><br><span class="line"> or</span><br><span class="line">  where COMMAND is one of:</span><br><span class="line">  fs                   run a generic filesystem user client</span><br><span class="line">  version              print the version</span><br><span class="line">  jar &lt;jar&gt;            run a jar file</span><br><span class="line">                       note: please use &quot;yarn jar&quot; to launch</span><br><span class="line">                             YARN applications, not this command.</span><br><span class="line">  checknative [-a|-h]  check native hadoop and compression libraries availability</span><br><span class="line">  distcp &lt;srcurl&gt; &lt;desturl&gt; copy file or directories recursively</span><br><span class="line">  archive -archiveName NAME -p &lt;parent path&gt; &lt;src&gt;* &lt;dest&gt; create a hadoop archive</span><br><span class="line">  classpath            prints the class path needed to get the</span><br><span class="line">  credential           interact with credential providers</span><br><span class="line">                       Hadoop jar and the required libraries</span><br><span class="line">  daemonlog            get/set the log level for each daemon</span><br><span class="line">  trace                view and modify Hadoop tracing settings</span><br><span class="line"></span><br><span class="line">Most commands print help when invoked w/o parameters.</span><br></pre></td></tr></table></figure>
+
+<p><em><strong>如果没有正确输出相关信息，请检查~/.bashrc文件中的Hadoop环境变量是否配置正确，同时请确定是否使用source ~/.bashrc命令更新环境变量配置。</strong></em></p>
+<h3 id="3-编辑Hadoop配置文件"><a href="#3-编辑Hadoop配置文件" class="headerlink" title="3.编辑Hadoop配置文件"></a><strong>3.编辑Hadoop配置文件</strong></h3><p>1.打开hadoop-env.sh配置文件进行编辑</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> vi /usr/dsy/hadoop-2.7.7/etc/hadoop/hadoop-env.sh</span><br><span class="line"> (-------------------省略------------------------)</span><br><span class="line"><span class="meta">#</span><span class="bash"> Set Hadoop-specific environment variables here.</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> The only required environment variable is JAVA_HOME.  All others are</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> optional.  When running a distributed configuration it is best to</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">set</span> JAVA_HOME <span class="keyword">in</span> this file, so that it is correctly defined on</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> remote nodes.</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> The java implementation to use.</span></span><br><span class="line">export JAVA_HOME=$&#123;JAVA_HOME&#125;（注：需要对此行内容进行更改，为Hadoop绑定Java运行环境)</span><br><span class="line"><span class="meta">#</span><span class="bash"> The jsvc implementation to use. Jsvc is required to run secure datanodes</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> that <span class="built_in">bind</span> to privileged ports to provide authentication of data transfer</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> protocol.  Jsvc is not required <span class="keyword">if</span> SASL is configured <span class="keyword">for</span> authentication of</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> data transfer protocol using non-privileged ports.</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="built_in">export</span> JSVC_HOME=<span class="variable">$&#123;JSVC_HOME&#125;</span></span></span><br><span class="line"></span><br><span class="line">export HADOOP_CONF_DIR=$&#123;HADOOP_CONF_DIR:-&quot;/etc/hadoop&quot;&#125;</span><br><span class="line">(-------------------省略------------------------)</span><br></pre></td></tr></table></figure>
+
+<p>在文件中进行下列内容更改，将JAVA_HOME对应的值改成实际的JDK安装目录,编辑完成后保存文件并退出vi编辑器。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export  JAVA_HOME=/usr/cx/jdk1.8.0_60</span><br></pre></td></tr></table></figure>
+
+<img src="/images/image-20220307165702900-164664651095213.png">
+
+<p>2.打开core-site.xml配置文件进行编辑</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/dsy/hadoop-2.7.7/etc/hadoop/core-site.xml</span><br><span class="line">(-------------------省略------------------------)</span><br><span class="line">&lt;!-- Put site-specific property overrides in this file. --&gt;</span><br><span class="line"></span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">(注：需要在此处进行相关内容配置)</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在文件中<configuration>和</configuration>之间增加下列内容,编辑完成保存退出。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">/*设置默认的HDFS访问路径*/</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;fs.defaultFS&lt;/name&gt;</span><br><span class="line">&lt;value&gt;hdfs://master:9000&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">/*缓冲区大小：io.file.buffer.size默认是4KB*/</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;io.file.buffer.size&lt;/name&gt;</span><br><span class="line">&lt;value&gt;131072&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">/*临时文件夹路径设置*/</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;hadoop.tmp.dir&lt;/name&gt;</span><br><span class="line">&lt;value&gt;file:/usr/tmp&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">/*设置使用hduser用户可以代理所有主机用户进行任务提交*/</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;hadoop.proxyuser.hduser.hosts&lt;/name&gt;</span><br><span class="line">&lt;value&gt;*&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">/*设置使用hduser用户可以代理所有组用户进行任务提交*/</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;hadoop.proxyuser.hduser.groups&lt;/name&gt;</span><br><span class="line">&lt;value&gt;*&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+
+<p>3.打开yarn-site.xml文件进行配置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/dsy/hadoop-2.7.7/etc/hadoop/yarn-site.xml</span><br><span class="line">(-------------------省略------------------------)</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">(注：需要在此处进行相关内容配置)</span><br><span class="line">&lt;!-- Site specific YARN configuration properties --&gt;</span><br><span class="line"></span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在文件中<configuration>和</configuration>之间增加下列内容，完成后保存文件并退出。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">/*设置NodeManager上运行的附属服务，需配置成mapreduce_shuffle才可运行MapReduce程序*/</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</span><br><span class="line">&lt;value&gt;mapreduce_shuffle&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;yarn.nodemanager.aux-services.mapreduce.shuffle.class&lt;/name&gt;</span><br><span class="line">&lt;value&gt;org.apache.hadoop.mapred.ShuffleHandler&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">/*设置客户端与ResourceManager的通信地址*/</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;yarn.resourcemanager.address&lt;/name&gt;</span><br><span class="line">&lt;value&gt;master:8032&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">/*设置ApplicationMaster调度器与ResourceManager的通信地址*/</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;yarn.resourcemanager.scheduler.address&lt;/name&gt;</span><br><span class="line">&lt;value&gt;master:8030&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">/*设置NodeManager与ResourceManager的通信地址*/</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;yarn.resourcemanager.resource-tracker.address&lt;/name&gt;</span><br><span class="line">&lt;value&gt;master:8031&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">/*设置管理员与ResourceManager的通信地址*/</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;yarn.resourcemanager.admin.address&lt;/name&gt;</span><br><span class="line">&lt;value&gt;master:8033&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">/* ResourceManager的Web地址，监控资源调度*/</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;yarn.resourcemanager.webapp.address&lt;/name&gt;</span><br><span class="line">&lt;value&gt;master:8088&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+
+<p>4.复制mapred-site.xml.template文件并重命名为mapred-site.xml</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/dsy/hadoop-2.7.7/etc/hadoop/mapred-site.xml.template /usr/dsy/hadoop-2.7.7/etc/hadoop/mapred-site.xml</span><br></pre></td></tr></table></figure>
+
+<p>5.打开mapred-site.xml文件并对它进行配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/dsy/hadoop-2.7.7/etc/hadoop/mapred-site.xml</span><br><span class="line">(-------------------省略------------------------)</span><br><span class="line">&lt;!-- Put site-specific property overrides in this file. --&gt;</span><br><span class="line"></span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">(注：需要在此处进行相关内容配置)</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在文件中<configuration>和</configuration>之间增加下列内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/*Hadoop对MapReduce运行框架一共提供了3种实现，在mapred-site.xml中通过&quot;mapreduce.framework.name&quot;这个属性来设置为&quot;classic&quot;、&quot;yarn&quot;或者&quot;local&quot;*/</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;mapreduce.framework.name&lt;/name&gt;</span><br><span class="line">&lt;value&gt;yarn&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">/*MapReduce JobHistory Server地址*/</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;mapreduce.jobhistory.address&lt;/name&gt;</span><br><span class="line">&lt;value&gt;master:10020&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">/*MapReduce JobHistory Server Web UI访问地址*/</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;mapreduce.jobhistory.webapp.address&lt;/name&gt;</span><br><span class="line">&lt;value&gt;master:19888&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+
+<p>6.创建Hadoop的数据存储目录namenode和datanode</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /hdfs/namenode</span><br><span class="line">mkdir -p /hdfs/datanode</span><br></pre></td></tr></table></figure>
+
+<p>7.使用vi命令打开hdfs-site.xml文件进行配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/dsy/hadoop-2.7.7/etc/hadoop/hdfs-site.xml</span><br></pre></td></tr></table></figure>
+
+<p>在文件中<configuration>和</configuration>之间增加下列内容保存并退出。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">(-------------------省略------------------------)</span><br><span class="line">  Unless required by applicable law or agreed to in writing, software</span><br><span class="line">  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span><br><span class="line">  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span><br><span class="line">  See the License for the specific language governing permissions and</span><br><span class="line">  limitations under the License. See accompanying LICENSE file.</span><br><span class="line"><span class="meta">--&gt;</span><span class="bash"></span></span><br><span class="line"><span class="bash"></span></span><br><span class="line">&lt;!-- Put site-specific property overrides in this file. --&gt;</span><br><span class="line"></span><br><span class="line">&lt;configuration&gt;</span><br><span class="line"></span><br><span class="line">/*配置SecondaryNameNode地址*/</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;dfs.namenode.secondary.http-address&lt;/name&gt;</span><br><span class="line">&lt;value&gt;master:9001&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">/*配置NameNode的数据存储目录，需要与上文创建的目录相对应*/</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;</span><br><span class="line">&lt;value&gt;file:/hdfs/namenode&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">/*配置DataNode的数据存储目录，需要与上文创建的目录相对应*/</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;</span><br><span class="line">&lt;value&gt;file:/hdfs/datanode&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">/*配置数据块副本数*/</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;dfs.replication&lt;/name&gt;</span><br><span class="line">&lt;value&gt;1&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">/*将dfs.webhdfs.enabled属性设置为true，否则就不能使用webhdfs的LISTSTATUS、LIST FILESTATUS等需要列出文件、文件夹状态的命令，因为这些信息都是由namenode保存的*/</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;dfs.webhdfs.enabled&lt;/name&gt;</span><br><span class="line">&lt;value&gt;true&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+
+<p>8.用vi命令打开slaves文件进行配置（要与我们前文设置的主机名相互一致，否则将会引起Hadoop相关进程无法正确启动）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/dsy/hadoop-2.7.7/etc/hadoop/slaves</span><br></pre></td></tr></table></figure>
+
+<p>打开文件显示如下：</p>
+<img src="/images/image-20220307171704831-164664651095214.png"> 
+
+<p>将文件中的内容更改为下列内容</p>
+<img src="/images/image-20220307171835454-164664651095215.png"> 
+
+<h3 id="4-格式化HDFS"><a href="#4-格式化HDFS" class="headerlink" title="4.格式化HDFS"></a>4.<strong>格式化HDFS</strong></h3><p>通过下列命令格式化HDFS文件系统（***如果格式化失败，会有相关的错误日志输出，根据输出内容进行更改即可***）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop namenode -format</span><br></pre></td></tr></table></figure>
+
+<img src="/images/image-20220307172037457-164664651095216.png"> 
+
+<h2 id="5-Hadoop运行及测试"><a href="#5-Hadoop运行及测试" class="headerlink" title="5.Hadoop运行及测试"></a>5.Hadoop运行及测试</h2><h3 id="1-启动Hadoop，通过下列命令启动Hadoop"><a href="#1-启动Hadoop，通过下列命令启动Hadoop" class="headerlink" title="1.启动Hadoop，通过下列命令启动Hadoop"></a>1.<strong>启动Hadoop</strong>，通过下列命令启动Hadoop</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start-all.sh</span><br></pre></td></tr></table></figure>
+
+<p>命令运行后的输出内容如下所示：</p>
+<img src="/images/image-20220307172321214-164664651095217.png"> 
+
+<p>由输出内容可以看到，每个进程在启动以及运行过程中，会将相关的日志信息记录到日志文件中，因此当进程出现问题时，一个有效的办法就是查看日志文件进行排错处理。</p>
+<h3 id="2-查看进程"><a href="#2-查看进程" class="headerlink" title="2.查看进程"></a>2.查看进程</h3><p>查看相应的JVM进程确定Hadoop是否配置及启动成功</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jps</span><br></pre></td></tr></table></figure>
+
+<p>当有以下5个进程启动时，则说明Hadoop已经成功启动，如果某个进程没有启动，则需要查看日志文件确定错误发生的原因：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# jps</span><br><span class="line">48784 DataNode（注：HDFS数据存储进程）</span><br><span class="line">52512 Jps</span><br><span class="line">49556 NodeManager（注：任务执行进程）</span><br><span class="line">48613 NameNode（注：HDFS元数据管理进程）</span><br><span class="line">49413 ResourceManager（注：资源管理进程）</span><br><span class="line">49118 SecondaryNameNode(注：HDFS数据检查点进程）</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Web页面测试"><a href="#3-Web页面测试" class="headerlink" title="3.Web页面测试"></a>3.<strong>Web页面测试</strong></h3><p>1.当Hadoop成功启动后，我们打开浏览器，输入网址<a href="http://master:8088便可以访问任务调度的Web管理页面：">http://master:8088便可以访问任务调度的Web管理页面：</a></p>
+<img src="/images/image-20220307172940397-164664651095218.png"> 
+
+<p>2.当Hadoop成功启动后，我们打开浏览器，输入网址<a href="http://master:50070便可以访问HDFS的Web管理页面：">http://master:50070便可以访问HDFS的Web管理页面：</a></p>
+<img src="/images/image-20220307173129364-164664651095219.png"> 
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1218,14 +1516,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">6k</span>
+    <span title="Symbols count total">19k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">5 mins.</span>
+    <span title="Reading time total">17 mins.</span>
   </span>
 </div>
 <div class="busuanzi-count">
