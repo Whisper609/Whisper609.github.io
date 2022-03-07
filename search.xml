@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>git出错10054</title>
+    <url>/2021/08/23/git%E5%87%BA%E9%94%9910054/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>最近在使用git时又报出来了这样一个错误“OpenSSL SSL_read: Connection was reset, errno 10054”，意思是OpenSSL SSL_read：连接已重置，错误号 10054 ，于是我就上网搜索了有关解决办法，下面的方法是我使用过真是不错的，我将分享给大家，希望能够帮助你们。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/Whisper609/Whisper609.github.io.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line">FATAL &#123;</span><br><span class="line">  err: Error: Spawn failed</span><br><span class="line">      at ChildProcess.&lt;anonymous&gt; (E:\Whiper609blog\Whisper609\node_modules\hexo-util\lib\spawn.js:51:21)</span><br><span class="line">      at ChildProcess.emit (events.js:400:28)</span><br><span class="line">      at ChildProcess.cp.emit (E:\Whiper609blog\Whisper609\node_modules\cross-spawn\lib\enoent.js:34:29)</span><br><span class="line">      at Process.ChildProcess._handle.onexit (internal/child_process.js:277:12) &#123;</span><br><span class="line">    code: 128</span><br><span class="line">  &#125;</span><br><span class="line">&#125; Something&#x27;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span><br></pre></td></tr></table></figure>
+
+<p>首先出现这个的原因是网络不稳定而导致的连接超时问题。</p>
+<h3 id="1-检查c盘下host文件访问的域名对应的ip是否正确"><a href="#1-检查c盘下host文件访问的域名对应的ip是否正确" class="headerlink" title="1.检查c盘下host文件访问的域名对应的ip是否正确"></a><strong>1.检查c盘下host文件访问的域名对应的ip是否正确</strong></h3><p>先在命令行窗口Ping一下github的地址，就可以获得github官网的IP地址</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">E:\Whiper609blog\Whisper609&gt;ping github.com</span><br><span class="line"></span><br><span class="line">正在 Ping github.com [140.82.114.4] 具有 32 字节的数据:</span><br><span class="line">来自 140.82.114.4 的回复: 字节=32 时间=267ms TTL=48</span><br><span class="line">来自 140.82.114.4 的回复: 字节=32 时间=255ms TTL=48</span><br><span class="line">来自 140.82.114.4 的回复: 字节=32 时间=247ms TTL=48</span><br><span class="line">来自 140.82.114.4 的回复: 字节=32 时间=262ms TTL=48</span><br><span class="line"></span><br><span class="line">140.82.114.4 的 Ping 统计信息:</span><br><span class="line">    数据包: 已发送 = 4，已接收 = 4，丢失 = 0 (0% 丢失)，</span><br><span class="line">往返行程的估计时间(以毫秒为单位):</span><br><span class="line">    最短 = 247ms，最长 = 267ms，平均 = 257ms</span><br></pre></td></tr></table></figure>
+
+<p>然后找到这个“C:\Windows\System32\drivers\etc”路径下的hosts文件，</p>
+<p>使用记事本打开对比上面ping的ip地址和记录的IP地址是否一致，一致说明IP地址没有错误，再对上传几次，若是没有用再尝试下面的方法。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">140.82.114.4 github.com</span><br><span class="line">4 × IPv4 github.global.ssl.fastly.net</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-解除ssl限制"><a href="#2-解除ssl限制" class="headerlink" title="2.解除ssl限制"></a><strong>2.解除ssl限</strong>制</h3><p>打开命令行模式，修改设置，解除ssl验证</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global http.sslVerify &quot;false&quot;</span><br></pre></td></tr></table></figure>
+
+<p>再上传即可。</p>
+]]></content>
+      <categories>
+        <category>问题帮助</category>
+      </categories>
+      <tags>
+        <tag>问题帮助</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java安装教程</title>
     <url>/2021/09/17/Java%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="一、下载安装工具"><a href="#一、下载安装工具" class="headerlink" title="一、下载安装工具"></a>一、下载安装工具</h2><p>1.java现在是oracle公司下的产品，我们想要安装java先到官网上下载安装工具。</p>
@@ -99,34 +127,6 @@
       </categories>
       <tags>
         <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git出错10054</title>
-    <url>/2021/08/23/git%E5%87%BA%E9%94%9910054/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>最近在使用git时又报出来了这样一个错误“OpenSSL SSL_read: Connection was reset, errno 10054”，意思是OpenSSL SSL_read：连接已重置，错误号 10054 ，于是我就上网搜索了有关解决办法，下面的方法是我使用过真是不错的，我将分享给大家，希望能够帮助你们。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/Whisper609/Whisper609.github.io.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line">FATAL &#123;</span><br><span class="line">  err: Error: Spawn failed</span><br><span class="line">      at ChildProcess.&lt;anonymous&gt; (E:\Whiper609blog\Whisper609\node_modules\hexo-util\lib\spawn.js:51:21)</span><br><span class="line">      at ChildProcess.emit (events.js:400:28)</span><br><span class="line">      at ChildProcess.cp.emit (E:\Whiper609blog\Whisper609\node_modules\cross-spawn\lib\enoent.js:34:29)</span><br><span class="line">      at Process.ChildProcess._handle.onexit (internal/child_process.js:277:12) &#123;</span><br><span class="line">    code: 128</span><br><span class="line">  &#125;</span><br><span class="line">&#125; Something&#x27;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span><br></pre></td></tr></table></figure>
-
-<p>首先出现这个的原因是网络不稳定而导致的连接超时问题。</p>
-<h3 id="1-检查c盘下host文件访问的域名对应的ip是否正确"><a href="#1-检查c盘下host文件访问的域名对应的ip是否正确" class="headerlink" title="1.检查c盘下host文件访问的域名对应的ip是否正确"></a><strong>1.检查c盘下host文件访问的域名对应的ip是否正确</strong></h3><p>先在命令行窗口Ping一下github的地址，就可以获得github官网的IP地址</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">E:\Whiper609blog\Whisper609&gt;ping github.com</span><br><span class="line"></span><br><span class="line">正在 Ping github.com [140.82.114.4] 具有 32 字节的数据:</span><br><span class="line">来自 140.82.114.4 的回复: 字节=32 时间=267ms TTL=48</span><br><span class="line">来自 140.82.114.4 的回复: 字节=32 时间=255ms TTL=48</span><br><span class="line">来自 140.82.114.4 的回复: 字节=32 时间=247ms TTL=48</span><br><span class="line">来自 140.82.114.4 的回复: 字节=32 时间=262ms TTL=48</span><br><span class="line"></span><br><span class="line">140.82.114.4 的 Ping 统计信息:</span><br><span class="line">    数据包: 已发送 = 4，已接收 = 4，丢失 = 0 (0% 丢失)，</span><br><span class="line">往返行程的估计时间(以毫秒为单位):</span><br><span class="line">    最短 = 247ms，最长 = 267ms，平均 = 257ms</span><br></pre></td></tr></table></figure>
-
-<p>然后找到这个“C:\Windows\System32\drivers\etc”路径下的hosts文件，</p>
-<p>使用记事本打开对比上面ping的ip地址和记录的IP地址是否一致，一致说明IP地址没有错误，再对上传几次，若是没有用再尝试下面的方法。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">140.82.114.4 github.com</span><br><span class="line">4 × IPv4 github.global.ssl.fastly.net</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-解除ssl限制"><a href="#2-解除ssl限制" class="headerlink" title="2.解除ssl限制"></a><strong>2.解除ssl限</strong>制</h3><p>打开命令行模式，修改设置，解除ssl验证</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global http.sslVerify &quot;false&quot;</span><br></pre></td></tr></table></figure>
-
-<p>再上传即可。</p>
-]]></content>
-      <categories>
-        <category>问题帮助</category>
-      </categories>
-      <tags>
-        <tag>问题帮助</tag>
       </tags>
   </entry>
   <entry>
@@ -350,6 +350,30 @@
       </tags>
   </entry>
   <entry>
+    <title>Whisper609&#39;s blog</title>
+    <url>/2021/07/10/hello-world/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="hello-hexo"><a href="#hello-hexo" class="headerlink" title="hello hexo"></a>hello hexo</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>软件安装</category>
+      </categories>
+      <tags>
+        <tag>博客搭建</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo插入音乐播放器</title>
     <url>/2021/09/21/hexo%E6%8F%92%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><img src="/images/ddd.jpg" alt="ppp">
@@ -377,89 +401,6 @@
       </categories>
       <tags>
         <tag>hexo技术</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Whisper609&#39;s blog</title>
-    <url>/2021/07/10/hello-world/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="hello-hexo"><a href="#hello-hexo" class="headerlink" title="hello hexo"></a>hello hexo</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>软件安装</category>
-      </categories>
-      <tags>
-        <tag>博客搭建</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>免费追剧tips</title>
-    <url>/2021/12/28/%E5%85%8D%E8%B4%B9%E8%BF%BD%E5%89%A7tips/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>我们在空闲的时候都喜欢看剧来放松自己，我本人也是很喜欢看一些剧和综艺。甚至为了追剧买过腾讯、优酷、芒果…..等各大平台的会员，最后还是需要不断的充钱充钱充钱。为了不再花更多的钱也能让我更好的追剧，我便搜索一些可以免费看剧的方法，这些都是我自己试过之后感觉还可以的包括一些平台，也包括一些其他的方法，希望能够分享给大家。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">1.大师兄影视</span><br></pre></td></tr></table></figure>
-
-<p>这个软件是我一年前在看见一位大佬推荐后下载的，它的头像如下图所示，就是大师兄（孙悟空）的。</p>
-<img src="/images/dsxys.jpg" width="50%" height="50%">
-
-<p>刚开始下载后我的手机就爆出了错误，然后我就去官网（<a href="https://dsxys.com/app/%EF%BC%89%E6%9F%A5%E7%9C%8B%E8%AF%B4%E6%98%8E%EF%BC%8C%E4%B8%8B%E8%BD%BD%E5%90%8E%E5%B0%86%E5%AE%83%E5%8A%A0%E5%85%A5%E6%89%8B%E6%9C%BA%E7%99%BD%E5%90%8D%E5%8D%95%EF%BC%8C%E4%B8%8D%E5%86%8D%E5%87%BA%E7%8E%B0%E9%94%99%E8%AF%AF%E3%80%82">https://dsxys.com/app/）查看说明，下载后将它加入手机白名单，不再出现错误。</a></p>
-<img src="/images/20211228013737.jpg" width="50%" height="50%">
-
-<p>大师兄首页有很多分类，包括电影、综艺、连续剧等等，国内国外的都可以看。你不需要注册信息就可以观看各种电视电影，我常用它来看看国内的综艺，它更新的速度也很快。但可能唯一的缺点就是更新的的频繁，也是它在不断修复bug，所以难免会要更新，但是这也不影响我追剧的心情。</p>
-<img src="/images/dsx.jpg" width="50%" height="50%">
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">2.泰剧迷</span><br></pre></td></tr></table></figure>
-
-<p>如果说大师兄是我看国内影视常用的软件，那么泰剧迷就是追海外剧常用的软件。一定是这个这个粉色图标的泰剧迷。</p>
-<img src="/images/20211228011519.jpg" width="50%" height="50%">
-
-<p>泰剧迷不仅能够看泰剧、还可以追韩剧、日剧、美剧、英剧等，更新速度也是杠杠的，靠它基本能够满足看海外剧的需求。</p>
-<img src="/images/tjm.jpg" width="50%" height="50%">
-
-<p>下载方法如下：</p>
-<img src="/images/taijumi.jpg">
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">3.油猴插件</span><br></pre></td></tr></table></figure>
-
-<p>Tampermonkey（油猴）是一款免费的浏览器插件，通过编写脚本可以让用户直接控制修改网页内容，改善网页体验它适用于 Chrome, Microsoft Edge, Safari, Opera Next, 和 Firefox。油猴脚本可以相互分享，安装过油猴后，在Greasemonkey上可以搜索各种各样实用的插件并安装，就可以直接使用别人写好的脚本。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">安装过程：</span><br></pre></td></tr></table></figure>
-
-<p>一般是在百度上直接搜索油猴就会出现，点进去就会出现各种适合 Chrome, Microsoft Edge, Safari, Opera Next, 和 Firefox浏览器的版本。</p>
-<img src="/images/yh1.jpg">
-
-<p>现将chrome浏览器的安装方法演示：</p>
-<p>若直接点击安装Tampermonkey可能打开如下</p>
-<img src="/images/yh2.jpg" width="70%" height="70%">
-
-<p>原因是因为这个插件需要在国外的网站上下载，所以我直接将这个插件压缩，放在下面这个地址，如若需要则下载安装：</p>
-<p><strong>油猴安装包链接：</strong></p>
-<p><a href="https://pan.baidu.com/s/1ZYeI5awD-SuRjasNGOO_OA">https://pan.baidu.com/s/1ZYeI5awD-SuRjasNGOO_OA</a><br>      提取码：ydfy </p>
-<p>下载安装包后直接解压，按照下面的步骤打开chrome扩展程序。</p>
-<img src="/images/yh3.jpg">
-
-<p>打开扩展程序后，可以直接将.cxr的文件拉入扩展程序中或者按“加载已解压的扩展程序”，选择解压后的文件即可。</p>
-<p><strong>安装完油猴后并没有结束，接着进入<a href="https://greasyfork.org/zh-CN">Greasyfork</a> 网站，在里面搜索“全网VIP视频免费”就可以出现好多插件，选择你想安装的进行安装</strong></p>
-<img src="/images/qw1.jpg">
-
-<p>当你打开爱奇艺（腾讯视频\优酷\芒果等等），选择你想要看的VIP视频，左侧就会出现如下图所示的多条解析路径。选择一条路径即可，如果解析不出来则换另外一条路径。</p>
-<img src="/images/qw2.jpg">
-
-]]></content>
-      <categories>
-        <category>软件推荐</category>
-      </categories>
-      <tags>
-        <tag>软件推荐</tag>
       </tags>
   </entry>
   <entry>
@@ -539,6 +480,65 @@
       </categories>
       <tags>
         <tag>使用帮助</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>免费追剧tips</title>
+    <url>/2021/12/28/%E5%85%8D%E8%B4%B9%E8%BF%BD%E5%89%A7tips/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>我们在空闲的时候都喜欢看剧来放松自己，我本人也是很喜欢看一些剧和综艺。甚至为了追剧买过腾讯、优酷、芒果…..等各大平台的会员，最后还是需要不断的充钱充钱充钱。为了不再花更多的钱也能让我更好的追剧，我便搜索一些可以免费看剧的方法，这些都是我自己试过之后感觉还可以的包括一些平台，也包括一些其他的方法，希望能够分享给大家。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">1.大师兄影视</span><br></pre></td></tr></table></figure>
+
+<p>这个软件是我一年前在看见一位大佬推荐后下载的，它的头像如下图所示，就是大师兄（孙悟空）的。</p>
+<img src="/images/dsxys.jpg" width="50%" height="50%">
+
+<p>刚开始下载后我的手机就爆出了错误，然后我就去官网（<a href="https://dsxys.com/app/%EF%BC%89%E6%9F%A5%E7%9C%8B%E8%AF%B4%E6%98%8E%EF%BC%8C%E4%B8%8B%E8%BD%BD%E5%90%8E%E5%B0%86%E5%AE%83%E5%8A%A0%E5%85%A5%E6%89%8B%E6%9C%BA%E7%99%BD%E5%90%8D%E5%8D%95%EF%BC%8C%E4%B8%8D%E5%86%8D%E5%87%BA%E7%8E%B0%E9%94%99%E8%AF%AF%E3%80%82">https://dsxys.com/app/）查看说明，下载后将它加入手机白名单，不再出现错误。</a></p>
+<img src="/images/20211228013737.jpg" width="50%" height="50%">
+
+<p>大师兄首页有很多分类，包括电影、综艺、连续剧等等，国内国外的都可以看。你不需要注册信息就可以观看各种电视电影，我常用它来看看国内的综艺，它更新的速度也很快。但可能唯一的缺点就是更新的的频繁，也是它在不断修复bug，所以难免会要更新，但是这也不影响我追剧的心情。</p>
+<img src="/images/dsx.jpg" width="50%" height="50%">
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">2.泰剧迷</span><br></pre></td></tr></table></figure>
+
+<p>如果说大师兄是我看国内影视常用的软件，那么泰剧迷就是追海外剧常用的软件。一定是这个这个粉色图标的泰剧迷。</p>
+<img src="/images/20211228011519.jpg" width="50%" height="50%">
+
+<p>泰剧迷不仅能够看泰剧、还可以追韩剧、日剧、美剧、英剧等，更新速度也是杠杠的，靠它基本能够满足看海外剧的需求。</p>
+<img src="/images/tjm.jpg" width="50%" height="50%">
+
+<p>下载方法如下：</p>
+<img src="/images/taijumi.jpg">
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">3.油猴插件</span><br></pre></td></tr></table></figure>
+
+<p>Tampermonkey（油猴）是一款免费的浏览器插件，通过编写脚本可以让用户直接控制修改网页内容，改善网页体验它适用于 Chrome, Microsoft Edge, Safari, Opera Next, 和 Firefox。油猴脚本可以相互分享，安装过油猴后，在Greasemonkey上可以搜索各种各样实用的插件并安装，就可以直接使用别人写好的脚本。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">安装过程：</span><br></pre></td></tr></table></figure>
+
+<p>一般是在百度上直接搜索油猴就会出现，点进去就会出现各种适合 Chrome, Microsoft Edge, Safari, Opera Next, 和 Firefox浏览器的版本。</p>
+<img src="/images/yh1.jpg">
+
+<p>现将chrome浏览器的安装方法演示：</p>
+<p>若直接点击安装Tampermonkey可能打开如下</p>
+<img src="/images/yh2.jpg" width="70%" height="70%">
+
+<p>原因是因为这个插件需要在国外的网站上下载，所以我直接将这个插件压缩，放在下面这个地址，如若需要则下载安装：</p>
+<p><strong>油猴安装包链接：</strong></p>
+<p><a href="https://pan.baidu.com/s/1ZYeI5awD-SuRjasNGOO_OA">https://pan.baidu.com/s/1ZYeI5awD-SuRjasNGOO_OA</a><br>      提取码：ydfy </p>
+<p>下载安装包后直接解压，按照下面的步骤打开chrome扩展程序。</p>
+<img src="/images/yh3.jpg">
+
+<p>打开扩展程序后，可以直接将.cxr的文件拉入扩展程序中或者按“加载已解压的扩展程序”，选择解压后的文件即可。</p>
+<p><strong>安装完油猴后并没有结束，接着进入<a href="https://greasyfork.org/zh-CN">Greasyfork</a> 网站，在里面搜索“全网VIP视频免费”就可以出现好多插件，选择你想安装的进行安装</strong></p>
+<img src="/images/qw1.jpg">
+
+<p>当你打开爱奇艺（腾讯视频\优酷\芒果等等），选择你想要看的VIP视频，左侧就会出现如下图所示的多条解析路径。选择一条路径即可，如果解析不出来则换另外一条路径。</p>
+<img src="/images/qw2.jpg">
+
+]]></content>
+      <categories>
+        <category>软件推荐</category>
+      </categories>
+      <tags>
+        <tag>软件推荐</tag>
       </tags>
   </entry>
 </search>
