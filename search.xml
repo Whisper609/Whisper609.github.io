@@ -350,23 +350,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo文章中插入视频</title>
-    <url>/2021/09/18/hexo%E6%96%87%E7%AB%A0%E4%B8%AD%E6%8F%92%E5%85%A5%E8%A7%86%E9%A2%91/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>推荐插入视频的话可以先让视频上传到YouTube、BilBili等视频网站，这样可以分享链接来插入文章中，更好节约空间，减少出错率。</p>
-<img src="/images/image7.jpg">
-
-<p>插入后效果如下：</p>
-<iframe src="//player.bilibili.com/player.html?aid=51977489&bvid=BV144411Y7mp&cid=90991841&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
-]]></content>
-      <categories>
-        <category>hexo技术</category>
-      </categories>
-      <tags>
-        <tag>hexo技术</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Whisper609&#39;s blog</title>
     <url>/2021/07/10/hello-world/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -394,6 +377,23 @@
     <title>hexo插入音乐播放器</title>
     <url>/2021/09/21/hexo%E6%8F%92%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><img src="/images/ddd.jpg" alt="ppp">
+
+]]></content>
+      <categories>
+        <category>hexo技术</category>
+      </categories>
+      <tags>
+        <tag>hexo技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo文章中插入视频</title>
+    <url>/2021/09/18/hexo%E6%96%87%E7%AB%A0%E4%B8%AD%E6%8F%92%E5%85%A5%E8%A7%86%E9%A2%91/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>推荐插入视频的话可以先让视频上传到YouTube、BilBili等视频网站，这样可以分享链接来插入文章中，更好节约空间，减少出错率。</p>
+<img src="/images/image7.jpg">
+
+<p>插入后效果如下：</p>
+<iframe src="//player.bilibili.com/player.html?aid=51977489&bvid=BV144411Y7mp&cid=90991841&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 ]]></content>
       <categories>
