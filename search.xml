@@ -350,6 +350,19 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo插入音乐播放器</title>
+    <url>/2021/09/21/hexo%E6%8F%92%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><img src="/images/ddd.jpg" alt="ppp">
+
+]]></content>
+      <categories>
+        <category>hexo技术</category>
+      </categories>
+      <tags>
+        <tag>hexo技术</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Whisper609&#39;s blog</title>
     <url>/2021/07/10/hello-world/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -374,19 +387,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo插入音乐播放器</title>
-    <url>/2021/09/21/hexo%E6%8F%92%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><img src="/images/ddd.jpg" alt="ppp">
-
-]]></content>
-      <categories>
-        <category>hexo技术</category>
-      </categories>
-      <tags>
-        <tag>hexo技术</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo文章中插入视频</title>
     <url>/2021/09/18/hexo%E6%96%87%E7%AB%A0%E4%B8%AD%E6%8F%92%E5%85%A5%E8%A7%86%E9%A2%91/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>推荐插入视频的话可以先让视频上传到YouTube、BilBili等视频网站，这样可以分享链接来插入文章中，更好节约空间，减少出错率。</p>
@@ -404,46 +404,39 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo文章插入图片</title>
-    <url>/2021/09/17/hexo%E6%96%87%E7%AB%A0%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="一、插入本地图片"><a href="#一、插入本地图片" class="headerlink" title="一、插入本地图片"></a>一、插入本地图片</h2><p>插入本地图片时统一将本地图片放在博客文件source/images文件夹下，</p>
-<p>若没有在source目录下没有images文件夹则创建。</p>
-<img src="/images/iimage.jpg">
+    <title>超星学习通课件下载方法</title>
+    <url>/2021/07/10/%E8%B6%85%E6%98%9F%E5%AD%A6%E4%B9%A0%E9%80%9A%E8%AF%BE%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="超星学习通课件下载"><a href="#超星学习通课件下载" class="headerlink" title="超星学习通课件下载"></a>超星学习通课件下载</h1><p>​       最近在学习通上学习的时候，发现自己需要有些课程的课件，但是这些课程里面的课件却不下载，索性在网上找到了一种可行的方法可以下载自己想要的课件。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">1.登录超星学习通电脑版。</span><br></pre></td></tr></table></figure>
 
-<p><strong>插入图片也有两种语法可以使用，一种是markdown语法，另一种是html语法。</strong></p>
-<p>markdown语法：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">![](images/ddd.jpg)</span><br><span class="line">[]中是图片的提示文字,()里面是图片的地址，例：![pp](images/ddd.jpg)</span><br></pre></td></tr></table></figure>
+<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528104943930.png" alt="image-20210528104943930"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">2.打开你需要下载的课程的课件</span><br></pre></td></tr></table></figure>
 
-<p><img src="/images/ddd.jpg" alt="pp"></p>
-<p>html语法：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;img src=&quot;images/ddd.jpg&quot;&gt;</span><br><span class="line">统一格式为&lt;img src=&quot;&quot;&gt;，&quot;&quot;中间写上图片的地址，若想对这张图片也出现提示文字，则需要在后面添上alt=&quot;&quot;，例：&lt;img src=&quot;images/ddd.jpg&quot; alt=&quot;ppp&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528105133419.png" alt="image-20210528105133419"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">3.在空白处鼠标右击，选择“检查”，或者同时按键盘&quot;Fn+F12&quot;键，出现如下界面</span><br></pre></td></tr></table></figure>
 
-<img src="/images/ddd.jpg" alt="ppp">
+<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528105455966.png" alt="image-20210528105455966"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">4.同时按&quot;Ctrl+F&quot;键，在出现的搜索框中输入&quot;objectid&quot;,再按回车，找到objectid</span><br></pre></td></tr></table></figure>
 
-<h2 id="二、插入网络图片"><a href="#二、插入网络图片" class="headerlink" title="二、插入网络图片"></a>二、插入网络图片</h2><p>在浏览器上找到自己想要的图片，在新标签页打开图片，鼠标右键点击，找到图片的链接地址，如下（后面带有png、jpg、jpeg后缀是图片格式）：</p>
-<img src="/images/hadoop.jpg">
+<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528105739707.png" alt="image-20210528105739707"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">5.找&quot;objectid&quot;后面引号里的内容，如图复制下来,有几个文件就会有几个objectid。多个文件的话注意选择的Id。</span><br></pre></td></tr></table></figure>
 
-<p><strong>同样插入网络图片也有两种方式：markdown格式和html格式。</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">markdown格式:</span><br><span class="line">![](网络图片地址)</span><br><span class="line">html格式:</span><br><span class="line">&lt;img src=&quot;网络图片地址&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528110048848.png" alt="image-20210528110048848"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">6.在浏览器打开一个新的页面，输入http://cs.ananas.chaoxing.com/download/上面&quot;objectid&quot;后面引号里的内容，比如这里就是：</span><br><span class="line">http://cs.ananas.chaoxing.com/download/3934680559c726cd2e1a4bcc33caece0</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://www.xsky.com/wp-content/uploads/2019/09/640.jpeg" alt="markdown"></p>
-<img src="https://www.xsky.com/wp-content/uploads/2019/09/640.jpeg" alt="html">
+<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528111041572.png" alt="image-20210528111041572"></p>
+<p>下载原理：</p>
+<p>超星提供了 <img src="file:///C:\Users\Administrator\AppData\Roaming\Tencent\QQTempSys[5UQ[BL(6~BS2JV6W}N6[%S.png" alt="img"><a href="https://d0.ananas.chaoxing.com/download/">https://d0.ananas.chaoxing.com/download/</a> 接口，链接后加上对应课件的 objectid 即可获取到源文件。电脑上使用 Chrome 浏览器进入课程学习页面，打开开发者工具，在Console界面输入如下命令即可获取本页所有的 objectid：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">var attachments = document.getElementById(&#x27;iframe&#x27;).contentWindow.mArg.attachments;</span><br><span class="line">for (i=0;i&lt;attachments.length;i++)&#123;</span><br><span class="line">console.log(attachments[i].property.objectid</span><br></pre></td></tr></table></figure>
 
-<p>若想将插入的图片放大缩小，则需要在添加的图片后面加上长宽或者长宽的比例，如：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;img src=&quot;图片地址&quot; width=&quot;200&quot; height=&quot;300&quot;&gt;</span><br><span class="line">或者</span><br><span class="line">&lt;img src=&quot;图片地址&quot; width=&quot;50%&quot; height=&quot;50%&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>1.将图片设置长200，宽300</p>
-<img src="/images/ddd.jpg" width="200" height="300">
-
-<p>2.将图片的长宽都设置为原来的50%</p>
-<img src="/images/ddd.jpg" width="50%" height="50%">
-
+<p>这样你就下载成功了老师的课件！！！</p>
+<p>本文主要参考了<a href="https://lmqyu.cn/1632.html%E3%80%82">https://lmqyu.cn/1632.html。</a></p>
 ]]></content>
       <categories>
-        <category>hexo技术</category>
+        <category>使用帮助</category>
       </categories>
       <tags>
-        <tag>hexo技术</tag>
+        <tag>使用帮助</tag>
       </tags>
   </entry>
   <entry>
@@ -506,39 +499,56 @@
       </tags>
   </entry>
   <entry>
-    <title>超星学习通课件下载方法</title>
-    <url>/2021/07/10/%E8%B6%85%E6%98%9F%E5%AD%A6%E4%B9%A0%E9%80%9A%E8%AF%BE%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="超星学习通课件下载"><a href="#超星学习通课件下载" class="headerlink" title="超星学习通课件下载"></a>超星学习通课件下载</h1><p>​       最近在学习通上学习的时候，发现自己需要有些课程的课件，但是这些课程里面的课件却不下载，索性在网上找到了一种可行的方法可以下载自己想要的课件。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">1.登录超星学习通电脑版。</span><br></pre></td></tr></table></figure>
+    <title>hexo文章插入图片</title>
+    <url>/2021/09/17/hexo%E6%96%87%E7%AB%A0%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="一、插入本地图片"><a href="#一、插入本地图片" class="headerlink" title="一、插入本地图片"></a>一、插入本地图片</h2><p>插入本地图片时统一将本地图片放在博客文件source/images文件夹下，</p>
+<p>若没有在source目录下没有images文件夹则创建。</p>
+<img src="/images/iimage.jpg">
 
-<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528104943930.png" alt="image-20210528104943930"></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">2.打开你需要下载的课程的课件</span><br></pre></td></tr></table></figure>
+<p><strong>插入图片也有两种语法可以使用，一种是markdown语法，另一种是html语法。</strong></p>
+<p>markdown语法：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">![](images/ddd.jpg)</span><br><span class="line">[]中是图片的提示文字,()里面是图片的地址，例：![pp](images/ddd.jpg)</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528105133419.png" alt="image-20210528105133419"></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">3.在空白处鼠标右击，选择“检查”，或者同时按键盘&quot;Fn+F12&quot;键，出现如下界面</span><br></pre></td></tr></table></figure>
+<p><img src="/images/ddd.jpg" alt="pp"></p>
+<p>html语法：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;img src=&quot;images/ddd.jpg&quot;&gt;</span><br><span class="line">统一格式为&lt;img src=&quot;&quot;&gt;，&quot;&quot;中间写上图片的地址，若想对这张图片也出现提示文字，则需要在后面添上alt=&quot;&quot;，例：&lt;img src=&quot;images/ddd.jpg&quot; alt=&quot;ppp&quot;&gt;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528105455966.png" alt="image-20210528105455966"></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">4.同时按&quot;Ctrl+F&quot;键，在出现的搜索框中输入&quot;objectid&quot;,再按回车，找到objectid</span><br></pre></td></tr></table></figure>
+<img src="/images/ddd.jpg" alt="ppp">
 
-<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528105739707.png" alt="image-20210528105739707"></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">5.找&quot;objectid&quot;后面引号里的内容，如图复制下来,有几个文件就会有几个objectid。多个文件的话注意选择的Id。</span><br></pre></td></tr></table></figure>
+<h2 id="二、插入网络图片"><a href="#二、插入网络图片" class="headerlink" title="二、插入网络图片"></a>二、插入网络图片</h2><p>在浏览器上找到自己想要的图片，在新标签页打开图片，鼠标右键点击，找到图片的链接地址，如下（后面带有png、jpg、jpeg后缀是图片格式）：</p>
+<img src="/images/hadoop.jpg">
 
-<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528110048848.png" alt="image-20210528110048848"></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">6.在浏览器打开一个新的页面，输入http://cs.ananas.chaoxing.com/download/上面&quot;objectid&quot;后面引号里的内容，比如这里就是：</span><br><span class="line">http://cs.ananas.chaoxing.com/download/3934680559c726cd2e1a4bcc33caece0</span><br></pre></td></tr></table></figure>
+<p><strong>同样插入网络图片也有两种方式：markdown格式和html格式。</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">markdown格式:</span><br><span class="line">![](网络图片地址)</span><br><span class="line">html格式:</span><br><span class="line">&lt;img src=&quot;网络图片地址&quot;&gt;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528111041572.png" alt="image-20210528111041572"></p>
-<p>下载原理：</p>
-<p>超星提供了 <img src="file:///C:\Users\Administrator\AppData\Roaming\Tencent\QQTempSys[5UQ[BL(6~BS2JV6W}N6[%S.png" alt="img"><a href="https://d0.ananas.chaoxing.com/download/">https://d0.ananas.chaoxing.com/download/</a> 接口，链接后加上对应课件的 objectid 即可获取到源文件。电脑上使用 Chrome 浏览器进入课程学习页面，打开开发者工具，在Console界面输入如下命令即可获取本页所有的 objectid：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">var attachments = document.getElementById(&#x27;iframe&#x27;).contentWindow.mArg.attachments;</span><br><span class="line">for (i=0;i&lt;attachments.length;i++)&#123;</span><br><span class="line">console.log(attachments[i].property.objectid</span><br></pre></td></tr></table></figure>
+<p><img src="https://www.xsky.com/wp-content/uploads/2019/09/640.jpeg" alt="markdown"></p>
+<img src="https://www.xsky.com/wp-content/uploads/2019/09/640.jpeg" alt="html">
 
-<p>这样你就下载成功了老师的课件！！！</p>
-<p>本文主要参考了<a href="https://lmqyu.cn/1632.html%E3%80%82">https://lmqyu.cn/1632.html。</a></p>
+<p>若想将插入的图片放大缩小，则需要在添加的图片后面加上长宽或者长宽的比例，如：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;img src=&quot;图片地址&quot; width=&quot;200&quot; height=&quot;300&quot;&gt;</span><br><span class="line">或者</span><br><span class="line">&lt;img src=&quot;图片地址&quot; width=&quot;50%&quot; height=&quot;50%&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>1.将图片设置长200，宽300</p>
+<img src="/images/ddd.jpg" width="200" height="300">
+
+<p>2.将图片的长宽都设置为原来的50%</p>
+<img src="/images/ddd.jpg" width="50%" height="50%">
+
 ]]></content>
       <categories>
-        <category>使用帮助</category>
+        <category>hexo技术</category>
       </categories>
       <tags>
-        <tag>使用帮助</tag>
+        <tag>hexo技术</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>My New Post</title>
+    <url>/2022/03/08/My-New-Post/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>生成网易云音乐链接：</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=1901371647&auto=1&height=66"></iframe>
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=1300885489&auto=1&height=66"></iframe>
+
+]]></content>
   </entry>
 </search>
