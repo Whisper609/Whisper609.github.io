@@ -1,85 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>docker容器技术介绍</title>
-    <url>/2022/03/09/docker%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF%E4%BB%8B%E7%BB%8D/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><h2 id="docker的介绍"><a href="#docker的介绍" class="headerlink" title="docker的介绍"></a>docker的介绍</h2><p><strong>Docker</strong>是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux或Windows 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。</p>
-<p>Docker，可以让开发者将自己的程序以及依赖打包成一个镜像文件，然后可以发布到开源社区中，自己可以用，也可以造福其他人。发布到各种服务器后，都是可以是虚拟化，容器之间都是沙盒（沙盒是沙箱的另一种叫法），相互之间没有影响，可以充分隔离，保证每个沙盒程序都可以不受其他影响，独立运行。他也是可移植的，支持主流操作系统。</p>
-<h2 id="沙盒"><a href="#沙盒" class="headerlink" title="沙盒"></a>沙盒</h2><p><strong>沙盒</strong>是在计算机领域中的一种虚拟技术，多用于计算机安全技术、软件安全，可以让程序在沙盒中运行，如果存在病毒、程序bug或者恶意行为，都只局限于自己的沙盒，不会影响到其他。</p>
-<h2 id="docker容器和虚拟机的区别"><a href="#docker容器和虚拟机的区别" class="headerlink" title="docker容器和虚拟机的区别"></a>docker容器和虚拟机的区别</h2><p>相同点：docker容器和虚拟机都采用了虚拟的技术<br>不同点：</p>
-<img src="/images/123.png">
- 
-<p>docker相对于虚拟机而言，少了虚拟机操作系统这层，少了一层就少了很多资源的浪费，所以docker的效率要高于虚拟机很多。</p>
-<h2 id="Docker架构"><a href="#Docker架构" class="headerlink" title="Docker架构"></a>Docker架构</h2><p>第一步需要安装docker，第二步小组镜像文件到docker中，第三启动docker容器实例，最后反馈给用户</p>
-<p>镜像：image，可以理解成一个系统的镜像文件</p>
-<p>容器：container，容器是镜像在运行时的一个状态<br>image相当于磁盘上的文件，container相当于运行时磁盘上的这个文件，包括内存数据</p>
-<h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><p>Docker 使用<strong>客户端-服务器架构</strong>,Docker客户端与 Docker守护进程对话，后者负责构建、运行和分发 Docker 容器的繁重工作。Docker 客户端和守护程序可以 在同一系统上运行，或者您可以将 Docker 客户端连接到远程 Docker 守护程序。Docker 客户端和守护程序使用 REST API，通过 UNIX 套接字或网络接口进行通信。另一个 Docker 客户端是 Docker Compose，它允许您使用由一组容器组成的应用程序。<br><img src="/images/2022-03-09-11-55-16.png"></p>
-<p><em><strong>Clients</strong></em> 是docker客户端，用来连接docker主机</p>
-<p><em><strong>Host</strong></em> 是docker主机，安装了docker程序机器</p>
-<p><em><strong>Registry</strong></em> 是仓库，用来存储各种打包好的镜像文件</p>
-<p><em><strong>image</strong></em> 是镜像文件</p>
-<p><em><strong>container</strong></em> 是容器，独立运行应用</p>
-<h2 id="docker的特性及优点"><a href="#docker的特性及优点" class="headerlink" title="docker的特性及优点"></a>docker的特性及优点</h2><p><strong>特点：</strong><br><em><strong>文件系统隔离</strong></em>，每个容器运行在一个完全独立的沙盒中<br><em><strong>资源隔离</strong></em>，隔离系统资源，比如CPU、内存等，分配到不同的容器中<br><em><strong>网路隔离</strong></em>，每个容器运行在自己的网络中，有虚拟的IP地址<br><em><strong>日志记录</strong></em>，docker对每个容器都有日志功能<br>交互式的shell、管理沙盒程序等<br><strong>优点：</strong><br>有很多虚拟机的优势，而且某些方面比虚拟机要更优秀<br>占用的资源也比较少，比如说现在的PC机，可以运行多个docker实例<br>不需要关心具体的操作系统，只要大型号没有问题就可以。<br>支持多平台，例如Linux、Windows、Mac<br>应用比较广发，很多全球知名公司都在用docker<br><strong>缺点：</strong><br>对于应用的程序是最有利的，但是不善于处理文件和数据，一般会将文件（日志等），数据库的数据文件，挂载到容器之外</p>
-<h1 id="部署docker环境"><a href="#部署docker环境" class="headerlink" title="部署docker环境"></a>部署docker环境</h1><p>以下操作是在在 CentOS 上安装 Docker 引擎，若想在其他系统上安装则按照<a href="https://docs.docker.com/engine/install/">docker安装文档</a>来做</p>
-<h2 id="查看版本号"><a href="#查看版本号" class="headerlink" title="查看版本号"></a>查看版本号</h2><p>docker只支持Linux 3.10及以上版本，所以在部署之前先查看一下Linux内核版本，查看命令如下：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">uname -r</span><br></pre></td></tr></table></figure>
-<p>查看结果如下：<br><img src="/images/Snipaste_2022-03-09_16-28-24.jpg"></p>
-<h2 id="卸载旧版本docker，避免产生影响"><a href="#卸载旧版本docker，避免产生影响" class="headerlink" title="卸载旧版本docker，避免产生影响"></a>卸载旧版本docker，避免产生影响</h2><p>旧版本的 Docker 被称为docker或docker-engine. 如果安装了这些，请卸载它们以及相关的依赖项。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum remove docker \</span></span><br><span class="line"><span class="bash">                  docker-client \</span></span><br><span class="line"><span class="bash">                  docker-client-latest \</span></span><br><span class="line"><span class="bash">                  docker-common \</span></span><br><span class="line"><span class="bash">                  docker-latest \</span></span><br><span class="line"><span class="bash">                  docker-latest-logrotate \</span></span><br><span class="line"><span class="bash">                  docker-logrotate \</span></span><br><span class="line"><span class="bash">                  docker-engine</span></span><br></pre></td></tr></table></figure>
-<p>yum如果报告没有安装这些软件包，那也没关系。</p>
-<p>的内容/var/lib/docker/，包括图像、容器、卷和网络，都被保留。Docker 引擎包现在称为docker-ce.</p>
-<h2 id="升级yum和配置源"><a href="#升级yum和配置源" class="headerlink" title="升级yum和配置源"></a>升级yum和配置源</h2><p>在新主机上首次安装 Docker Engine 之前，您需要设置 Docker 存储库。之后，您可以从存储库安装和更新 Docker。</p>
-<p><strong>设置存储库</strong><br>安装<em>yum-utils</em>包（提供yum-config-manager 实用程序）并设置稳定的存储库</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum install -y yum-utils</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo yum-config-manager \</span></span><br><span class="line"><span class="bash">    --add-repo \</span></span><br><span class="line"><span class="bash">    https://download.docker.com/linux/centos/docker-ce.repo</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="在虚拟机中安装docker"><a href="#在虚拟机中安装docker" class="headerlink" title="在虚拟机中安装docker"></a>在虚拟机中安装docker</h2><p>这是安装最新版本的docker，一般公司工作都会选用最稳定版本，有很多时候需要知道如何去安装历史版本。<br>安装最新版本的 Docker Engine 和 containerd，或者进入下一步安装特定版本：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum install docker-ce docker-ce-cli containerd.io</span></span><br></pre></td></tr></table></figure>
-<p><strong>列出并排序您的存储库中可用的版本</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> yum list docker-ce --showduplicates | sort -r</span></span><br></pre></td></tr></table></figure>
-<p>安装指定版本的docker</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum install docker-ce-&lt;VERSION_STRING&gt; docker-ce-cli-&lt;VERSION_STRING&gt; containerd.io</span></span><br></pre></td></tr></table></figure>
-<p><VERSION_STRING>是代表要按照的版本号</VERSION_STRING></p>
-<p>1.安装成功</p>
-<img src="/images/Snipaste_2022-03-09_16-34-37.jpg">
-
-<p>2.启动服务进行验证<br>启动docker</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
-<p>停止docker</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl stop docker</span><br></pre></td></tr></table></figure>
-<p>重启docker</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
-<p>查看docker正在运行时的状态</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl status docker</span><br></pre></td></tr></table></figure>
-
-<p>3.查看docker版本信息</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker -v</span><br></pre></td></tr></table></figure>
-<p>如果运行正常，代表安装成功.</p>
-<h1 id="docker的常用操作"><a href="#docker的常用操作" class="headerlink" title="docker的常用操作"></a>docker的常用操作</h1><h2 id="1-查看本地镜像"><a href="#1-查看本地镜像" class="headerlink" title="1.查看本地镜像"></a>1.查看本地镜像</h2><p>第一次查询时是没有镜像的，只有拉取之后才有</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
-<h2 id="2-查找指定镜像"><a href="#2-查找指定镜像" class="headerlink" title="2.查找指定镜像"></a>2.查找指定镜像</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker search 名字（如果想限定版本，就加版本号）</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-拉取镜像"><a href="#3-拉取镜像" class="headerlink" title="3.拉取镜像"></a>3.拉取镜像</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker pull 名称（如果需要指定版本，添加版本号）</span><br><span class="line">以Tomcat为例</span><br><span class="line">docker pull tomcat：下载最新版本</span><br><span class="line">docker pull Tomcat:版本号：下载指定版本</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-查看容器"><a href="#4-查看容器" class="headerlink" title="4.查看容器"></a>4.查看容器</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">docker ps：查看在运行的</span><br><span class="line">docker ps –a：查看所有的</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-移除容器"><a href="#5-移除容器" class="headerlink" title="5.移除容器"></a>5.移除容器</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker rm 容器id/names</span><br></pre></td></tr></table></figure>
-
-<h2 id="6-启动容器"><a href="#6-启动容器" class="headerlink" title="6.启动容器"></a>6.启动容器</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker start 容器id/names</span><br><span class="line">docker stop ：停止容器</span><br><span class="line">docker restart：重启容器</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>以启动Tomcat为例：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run --name mytomcat -d -p 8080:8080 734d712b8777</span><br></pre></td></tr></table></figure>
-<p>docker run是启动Tomcat<br>–name是给这个镜像取一个名字，当前名字叫做mytomcat<br>-d是后台运行，可以不认Tomcat把日志输出到控制，这样控制台可以做其他操作<br>-p 8080:8080是端口映射，将docker中Tomcat的8080端口，映射到虚拟机的8080端口。第一个8080是虚拟机的端口号，第二个是docker的<br>最后一个是镜像的id或者名字+标签也可以</p>
-<h2 id="7-进入容器内"><a href="#7-进入容器内" class="headerlink" title="7.进入容器内"></a>7.进入容器内</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker exec –it 容器名字/id /bin/bash</span><br></pre></td></tr></table></figure>
-<p><em><strong>docker exec –it</strong></em>：是进入容器，-it等同于-i –t<br>/bin/bash是命令需要的路径参数</p>
-<h2 id="8-补充"><a href="#8-补充" class="headerlink" title="8.补充"></a>8.补充</h2><p><strong>exit</strong>：从容器中退出<br>进入容器是需要用-it，-i以交互模式运行虚拟机 –t为容器重新分配一个输入终端（准确的说是一些假的，也叫伪终端）<br>run中除了-d以外还有-c，run命令执行结束后执行的其他命令，可以让程序自动执行一些命令。<br><em><strong>docker logs 容器id/名字</strong></em></p>
-]]></content>
-      <categories>
-        <category>docker</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java安装教程</title>
     <url>/2021/09/17/Java%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="一、下载安装工具"><a href="#一、下载安装工具" class="headerlink" title="一、下载安装工具"></a>一、下载安装工具</h2><p>1.java现在是oracle公司下的产品，我们想要安装java先到官网上下载安装工具。</p>
@@ -181,6 +102,85 @@
       </tags>
   </entry>
   <entry>
+    <title>docker容器技术介绍</title>
+    <url>/2022/03/09/docker%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF%E4%BB%8B%E7%BB%8D/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><h2 id="docker的介绍"><a href="#docker的介绍" class="headerlink" title="docker的介绍"></a>docker的介绍</h2><p><strong>Docker</strong>是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux或Windows 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。</p>
+<p>Docker，可以让开发者将自己的程序以及依赖打包成一个镜像文件，然后可以发布到开源社区中，自己可以用，也可以造福其他人。发布到各种服务器后，都是可以是虚拟化，容器之间都是沙盒（沙盒是沙箱的另一种叫法），相互之间没有影响，可以充分隔离，保证每个沙盒程序都可以不受其他影响，独立运行。他也是可移植的，支持主流操作系统。</p>
+<h2 id="沙盒"><a href="#沙盒" class="headerlink" title="沙盒"></a>沙盒</h2><p><strong>沙盒</strong>是在计算机领域中的一种虚拟技术，多用于计算机安全技术、软件安全，可以让程序在沙盒中运行，如果存在病毒、程序bug或者恶意行为，都只局限于自己的沙盒，不会影响到其他。</p>
+<h2 id="docker容器和虚拟机的区别"><a href="#docker容器和虚拟机的区别" class="headerlink" title="docker容器和虚拟机的区别"></a>docker容器和虚拟机的区别</h2><p>相同点：docker容器和虚拟机都采用了虚拟的技术<br>不同点：</p>
+<img src="/images/123.png">
+ 
+<p>docker相对于虚拟机而言，少了虚拟机操作系统这层，少了一层就少了很多资源的浪费，所以docker的效率要高于虚拟机很多。</p>
+<h2 id="Docker架构"><a href="#Docker架构" class="headerlink" title="Docker架构"></a>Docker架构</h2><p>第一步需要安装docker，第二步小组镜像文件到docker中，第三启动docker容器实例，最后反馈给用户</p>
+<p>镜像：image，可以理解成一个系统的镜像文件</p>
+<p>容器：container，容器是镜像在运行时的一个状态<br>image相当于磁盘上的文件，container相当于运行时磁盘上的这个文件，包括内存数据</p>
+<h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><p>Docker 使用<strong>客户端-服务器架构</strong>,Docker客户端与 Docker守护进程对话，后者负责构建、运行和分发 Docker 容器的繁重工作。Docker 客户端和守护程序可以 在同一系统上运行，或者您可以将 Docker 客户端连接到远程 Docker 守护程序。Docker 客户端和守护程序使用 REST API，通过 UNIX 套接字或网络接口进行通信。另一个 Docker 客户端是 Docker Compose，它允许您使用由一组容器组成的应用程序。<br><img src="/images/2022-03-09-11-55-16.png"></p>
+<p><em><strong>Clients</strong></em> 是docker客户端，用来连接docker主机</p>
+<p><em><strong>Host</strong></em> 是docker主机，安装了docker程序机器</p>
+<p><em><strong>Registry</strong></em> 是仓库，用来存储各种打包好的镜像文件</p>
+<p><em><strong>image</strong></em> 是镜像文件</p>
+<p><em><strong>container</strong></em> 是容器，独立运行应用</p>
+<h2 id="docker的特性及优点"><a href="#docker的特性及优点" class="headerlink" title="docker的特性及优点"></a>docker的特性及优点</h2><p><strong>特点：</strong><br><em><strong>文件系统隔离</strong></em>，每个容器运行在一个完全独立的沙盒中<br><em><strong>资源隔离</strong></em>，隔离系统资源，比如CPU、内存等，分配到不同的容器中<br><em><strong>网路隔离</strong></em>，每个容器运行在自己的网络中，有虚拟的IP地址<br><em><strong>日志记录</strong></em>，docker对每个容器都有日志功能<br>交互式的shell、管理沙盒程序等<br><strong>优点：</strong><br>有很多虚拟机的优势，而且某些方面比虚拟机要更优秀<br>占用的资源也比较少，比如说现在的PC机，可以运行多个docker实例<br>不需要关心具体的操作系统，只要大型号没有问题就可以。<br>支持多平台，例如Linux、Windows、Mac<br>应用比较广发，很多全球知名公司都在用docker<br><strong>缺点：</strong><br>对于应用的程序是最有利的，但是不善于处理文件和数据，一般会将文件（日志等），数据库的数据文件，挂载到容器之外</p>
+<h1 id="部署docker环境"><a href="#部署docker环境" class="headerlink" title="部署docker环境"></a>部署docker环境</h1><p>以下操作是在在 CentOS 上安装 Docker 引擎，若想在其他系统上安装则按照<a href="https://docs.docker.com/engine/install/">docker安装文档</a>来做</p>
+<h2 id="查看版本号"><a href="#查看版本号" class="headerlink" title="查看版本号"></a>查看版本号</h2><p>docker只支持Linux 3.10及以上版本，所以在部署之前先查看一下Linux内核版本，查看命令如下：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">uname -r</span><br></pre></td></tr></table></figure>
+<p>查看结果如下：<br><img src="/images/Snipaste_2022-03-09_16-28-24.jpg"></p>
+<h2 id="卸载旧版本docker，避免产生影响"><a href="#卸载旧版本docker，避免产生影响" class="headerlink" title="卸载旧版本docker，避免产生影响"></a>卸载旧版本docker，避免产生影响</h2><p>旧版本的 Docker 被称为docker或docker-engine. 如果安装了这些，请卸载它们以及相关的依赖项。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum remove docker \</span></span><br><span class="line"><span class="bash">                  docker-client \</span></span><br><span class="line"><span class="bash">                  docker-client-latest \</span></span><br><span class="line"><span class="bash">                  docker-common \</span></span><br><span class="line"><span class="bash">                  docker-latest \</span></span><br><span class="line"><span class="bash">                  docker-latest-logrotate \</span></span><br><span class="line"><span class="bash">                  docker-logrotate \</span></span><br><span class="line"><span class="bash">                  docker-engine</span></span><br></pre></td></tr></table></figure>
+<p>yum如果报告没有安装这些软件包，那也没关系。</p>
+<p>的内容/var/lib/docker/，包括图像、容器、卷和网络，都被保留。Docker 引擎包现在称为docker-ce.</p>
+<h2 id="升级yum和配置源"><a href="#升级yum和配置源" class="headerlink" title="升级yum和配置源"></a>升级yum和配置源</h2><p>在新主机上首次安装 Docker Engine 之前，您需要设置 Docker 存储库。之后，您可以从存储库安装和更新 Docker。</p>
+<p><strong>设置存储库</strong><br>安装<em>yum-utils</em>包（提供yum-config-manager 实用程序）并设置稳定的存储库</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum install -y yum-utils</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo yum-config-manager \</span></span><br><span class="line"><span class="bash">    --add-repo \</span></span><br><span class="line"><span class="bash">    https://download.docker.com/linux/centos/docker-ce.repo</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="在虚拟机中安装docker"><a href="#在虚拟机中安装docker" class="headerlink" title="在虚拟机中安装docker"></a>在虚拟机中安装docker</h2><p>这是安装最新版本的docker，一般公司工作都会选用最稳定版本，有很多时候需要知道如何去安装历史版本。<br>安装最新版本的 Docker Engine 和 containerd，或者进入下一步安装特定版本：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum install docker-ce docker-ce-cli containerd.io</span></span><br></pre></td></tr></table></figure>
+<p><strong>列出并排序您的存储库中可用的版本</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> yum list docker-ce --showduplicates | sort -r</span></span><br></pre></td></tr></table></figure>
+<p>安装指定版本的docker</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum install docker-ce-&lt;VERSION_STRING&gt; docker-ce-cli-&lt;VERSION_STRING&gt; containerd.io</span></span><br></pre></td></tr></table></figure>
+<p><VERSION_STRING>是代表要按照的版本号</VERSION_STRING></p>
+<p>1.安装成功</p>
+<img src="/images/Snipaste_2022-03-09_16-34-37.jpg">
+
+<p>2.启动服务进行验证<br>启动docker</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
+<p>停止docker</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl stop docker</span><br></pre></td></tr></table></figure>
+<p>重启docker</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
+<p>查看docker正在运行时的状态</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl status docker</span><br></pre></td></tr></table></figure>
+
+<p>3.查看docker版本信息</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker -v</span><br></pre></td></tr></table></figure>
+<p>如果运行正常，代表安装成功.</p>
+<h1 id="docker的常用操作"><a href="#docker的常用操作" class="headerlink" title="docker的常用操作"></a>docker的常用操作</h1><h2 id="1-查看本地镜像"><a href="#1-查看本地镜像" class="headerlink" title="1.查看本地镜像"></a>1.查看本地镜像</h2><p>第一次查询时是没有镜像的，只有拉取之后才有</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
+<h2 id="2-查找指定镜像"><a href="#2-查找指定镜像" class="headerlink" title="2.查找指定镜像"></a>2.查找指定镜像</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker search 名字（如果想限定版本，就加版本号）</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-拉取镜像"><a href="#3-拉取镜像" class="headerlink" title="3.拉取镜像"></a>3.拉取镜像</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker pull 名称（如果需要指定版本，添加版本号）</span><br><span class="line">以Tomcat为例</span><br><span class="line">docker pull tomcat：下载最新版本</span><br><span class="line">docker pull Tomcat:版本号：下载指定版本</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-查看容器"><a href="#4-查看容器" class="headerlink" title="4.查看容器"></a>4.查看容器</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">docker ps：查看在运行的</span><br><span class="line">docker ps –a：查看所有的</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-移除容器"><a href="#5-移除容器" class="headerlink" title="5.移除容器"></a>5.移除容器</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker rm 容器id/names</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-启动容器"><a href="#6-启动容器" class="headerlink" title="6.启动容器"></a>6.启动容器</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker start 容器id/names</span><br><span class="line">docker stop ：停止容器</span><br><span class="line">docker restart：重启容器</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>以启动Tomcat为例：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run --name mytomcat -d -p 8080:8080 734d712b8777</span><br></pre></td></tr></table></figure>
+<p>docker run是启动Tomcat<br>–name是给这个镜像取一个名字，当前名字叫做mytomcat<br>-d是后台运行，可以不认Tomcat把日志输出到控制，这样控制台可以做其他操作<br>-p 8080:8080是端口映射，将docker中Tomcat的8080端口，映射到虚拟机的8080端口。第一个8080是虚拟机的端口号，第二个是docker的<br>最后一个是镜像的id或者名字+标签也可以</p>
+<h2 id="7-进入容器内"><a href="#7-进入容器内" class="headerlink" title="7.进入容器内"></a>7.进入容器内</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker exec –it 容器名字/id /bin/bash</span><br></pre></td></tr></table></figure>
+<p><em><strong>docker exec –it</strong></em>：是进入容器，-it等同于-i –t<br>/bin/bash是命令需要的路径参数</p>
+<h2 id="8-补充"><a href="#8-补充" class="headerlink" title="8.补充"></a>8.补充</h2><p><strong>exit</strong>：从容器中退出<br>进入容器是需要用-it，-i以交互模式运行虚拟机 –t为容器重新分配一个输入终端（准确的说是一些假的，也叫伪终端）<br>run中除了-d以外还有-c，run命令执行结束后执行的其他命令，可以让程序自动执行一些命令。<br><em><strong>docker logs 容器id/名字</strong></em></p>
+]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git出错10054</title>
     <url>/2021/08/23/git%E5%87%BA%E9%94%9910054/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>最近在使用git时又报出来了这样一个错误“OpenSSL SSL_read: Connection was reset, errno 10054”，意思是OpenSSL SSL_read：连接已重置，错误号 10054 ，于是我就上网搜索了有关解决办法，下面的方法是我使用过真是不错的，我将分享给大家，希望能够帮助你们。</p>
@@ -206,30 +206,6 @@
       </categories>
       <tags>
         <tag>问题帮助</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Whisper609&#39;s blog</title>
-    <url>/2021/07/10/hello-world/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="hello-hexo"><a href="#hello-hexo" class="headerlink" title="hello hexo"></a>hello hexo</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>软件安装</category>
-      </categories>
-      <tags>
-        <tag>博客搭建</tag>
       </tags>
   </entry>
   <entry>
@@ -453,6 +429,43 @@
       </tags>
   </entry>
   <entry>
+    <title>Whisper609&#39;s blog</title>
+    <url>/2021/07/10/hello-world/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="hello-hexo"><a href="#hello-hexo" class="headerlink" title="hello hexo"></a>hello hexo</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>软件安装</category>
+      </categories>
+      <tags>
+        <tag>博客搭建</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo插入音乐播放器</title>
+    <url>/2021/09/21/hexo%E6%8F%92%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><img src="/images/ddd.jpg" alt="ppp">
+
+]]></content>
+      <categories>
+        <category>hexo技术</category>
+      </categories>
+      <tags>
+        <tag>hexo技术</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo文章中插入视频</title>
     <url>/2021/09/18/hexo%E6%96%87%E7%AB%A0%E4%B8%AD%E6%8F%92%E5%85%A5%E8%A7%86%E9%A2%91/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>推荐插入视频的话可以先让视频上传到YouTube、BilBili等视频网站，这样可以分享链接来插入文章中，更好节约空间，减少出错率。</p>
@@ -605,19 +618,6 @@
       </categories>
       <tags>
         <tag>使用帮助</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo插入音乐播放器</title>
-    <url>/2021/09/21/hexo%E6%8F%92%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><img src="/images/ddd.jpg" alt="ppp">
-
-]]></content>
-      <categories>
-        <category>hexo技术</category>
-      </categories>
-      <tags>
-        <tag>hexo技术</tag>
       </tags>
   </entry>
 </search>
