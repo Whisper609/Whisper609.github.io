@@ -102,6 +102,16 @@
       </tags>
   </entry>
   <entry>
+    <title>My New Post</title>
+    <url>/2022/03/08/My-New-Post/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>生成网易云音乐链接：</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=1901371647&auto=1&height=66"></iframe>
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=1300885489&auto=1&height=66"></iframe>
+
+]]></content>
+  </entry>
+  <entry>
     <title>git出错10054</title>
     <url>/2021/08/23/git%E5%87%BA%E9%94%9910054/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>最近在使用git时又报出来了这样一个错误“OpenSSL SSL_read: Connection was reset, errno 10054”，意思是OpenSSL SSL_read：连接已重置，错误号 10054 ，于是我就上网搜索了有关解决办法，下面的方法是我使用过真是不错的，我将分享给大家，希望能够帮助你们。</p>
@@ -350,19 +360,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo插入音乐播放器</title>
-    <url>/2021/09/21/hexo%E6%8F%92%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><img src="/images/ddd.jpg" alt="ppp">
-
-]]></content>
-      <categories>
-        <category>hexo技术</category>
-      </categories>
-      <tags>
-        <tag>hexo技术</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Whisper609&#39;s blog</title>
     <url>/2021/07/10/hello-world/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -404,39 +401,16 @@
       </tags>
   </entry>
   <entry>
-    <title>超星学习通课件下载方法</title>
-    <url>/2021/07/10/%E8%B6%85%E6%98%9F%E5%AD%A6%E4%B9%A0%E9%80%9A%E8%AF%BE%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="超星学习通课件下载"><a href="#超星学习通课件下载" class="headerlink" title="超星学习通课件下载"></a>超星学习通课件下载</h1><p>​       最近在学习通上学习的时候，发现自己需要有些课程的课件，但是这些课程里面的课件却不下载，索性在网上找到了一种可行的方法可以下载自己想要的课件。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">1.登录超星学习通电脑版。</span><br></pre></td></tr></table></figure>
+    <title>hexo插入音乐播放器</title>
+    <url>/2021/09/21/hexo%E6%8F%92%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><img src="/images/ddd.jpg" alt="ppp">
 
-<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528104943930.png" alt="image-20210528104943930"></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">2.打开你需要下载的课程的课件</span><br></pre></td></tr></table></figure>
-
-<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528105133419.png" alt="image-20210528105133419"></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">3.在空白处鼠标右击，选择“检查”，或者同时按键盘&quot;Fn+F12&quot;键，出现如下界面</span><br></pre></td></tr></table></figure>
-
-<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528105455966.png" alt="image-20210528105455966"></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">4.同时按&quot;Ctrl+F&quot;键，在出现的搜索框中输入&quot;objectid&quot;,再按回车，找到objectid</span><br></pre></td></tr></table></figure>
-
-<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528105739707.png" alt="image-20210528105739707"></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">5.找&quot;objectid&quot;后面引号里的内容，如图复制下来,有几个文件就会有几个objectid。多个文件的话注意选择的Id。</span><br></pre></td></tr></table></figure>
-
-<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528110048848.png" alt="image-20210528110048848"></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">6.在浏览器打开一个新的页面，输入http://cs.ananas.chaoxing.com/download/上面&quot;objectid&quot;后面引号里的内容，比如这里就是：</span><br><span class="line">http://cs.ananas.chaoxing.com/download/3934680559c726cd2e1a4bcc33caece0</span><br></pre></td></tr></table></figure>
-
-<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528111041572.png" alt="image-20210528111041572"></p>
-<p>下载原理：</p>
-<p>超星提供了 <img src="file:///C:\Users\Administrator\AppData\Roaming\Tencent\QQTempSys[5UQ[BL(6~BS2JV6W}N6[%S.png" alt="img"><a href="https://d0.ananas.chaoxing.com/download/">https://d0.ananas.chaoxing.com/download/</a> 接口，链接后加上对应课件的 objectid 即可获取到源文件。电脑上使用 Chrome 浏览器进入课程学习页面，打开开发者工具，在Console界面输入如下命令即可获取本页所有的 objectid：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">var attachments = document.getElementById(&#x27;iframe&#x27;).contentWindow.mArg.attachments;</span><br><span class="line">for (i=0;i&lt;attachments.length;i++)&#123;</span><br><span class="line">console.log(attachments[i].property.objectid</span><br></pre></td></tr></table></figure>
-
-<p>这样你就下载成功了老师的课件！！！</p>
-<p>本文主要参考了<a href="https://lmqyu.cn/1632.html%E3%80%82">https://lmqyu.cn/1632.html。</a></p>
 ]]></content>
       <categories>
-        <category>使用帮助</category>
+        <category>hexo技术</category>
       </categories>
       <tags>
-        <tag>使用帮助</tag>
+        <tag>hexo技术</tag>
       </tags>
   </entry>
   <entry>
@@ -542,13 +516,39 @@
       </tags>
   </entry>
   <entry>
-    <title>My New Post</title>
-    <url>/2022/03/08/My-New-Post/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>生成网易云音乐链接：</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=1901371647&auto=1&height=66"></iframe>
+    <title>超星学习通课件下载方法</title>
+    <url>/2021/07/10/%E8%B6%85%E6%98%9F%E5%AD%A6%E4%B9%A0%E9%80%9A%E8%AF%BE%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="超星学习通课件下载"><a href="#超星学习通课件下载" class="headerlink" title="超星学习通课件下载"></a>超星学习通课件下载</h1><p>​       最近在学习通上学习的时候，发现自己需要有些课程的课件，但是这些课程里面的课件却不下载，索性在网上找到了一种可行的方法可以下载自己想要的课件。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">1.登录超星学习通电脑版。</span><br></pre></td></tr></table></figure>
 
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=1300885489&auto=1&height=66"></iframe>
+<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528104943930.png" alt="image-20210528104943930"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">2.打开你需要下载的课程的课件</span><br></pre></td></tr></table></figure>
 
+<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528105133419.png" alt="image-20210528105133419"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">3.在空白处鼠标右击，选择“检查”，或者同时按键盘&quot;Fn+F12&quot;键，出现如下界面</span><br></pre></td></tr></table></figure>
+
+<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528105455966.png" alt="image-20210528105455966"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">4.同时按&quot;Ctrl+F&quot;键，在出现的搜索框中输入&quot;objectid&quot;,再按回车，找到objectid</span><br></pre></td></tr></table></figure>
+
+<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528105739707.png" alt="image-20210528105739707"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">5.找&quot;objectid&quot;后面引号里的内容，如图复制下来,有几个文件就会有几个objectid。多个文件的话注意选择的Id。</span><br></pre></td></tr></table></figure>
+
+<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528110048848.png" alt="image-20210528110048848"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">6.在浏览器打开一个新的页面，输入http://cs.ananas.chaoxing.com/download/上面&quot;objectid&quot;后面引号里的内容，比如这里就是：</span><br><span class="line">http://cs.ananas.chaoxing.com/download/3934680559c726cd2e1a4bcc33caece0</span><br></pre></td></tr></table></figure>
+
+<p><img src="/.io//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210528111041572.png" alt="image-20210528111041572"></p>
+<p>下载原理：</p>
+<p>超星提供了 <img src="file:///C:\Users\Administrator\AppData\Roaming\Tencent\QQTempSys[5UQ[BL(6~BS2JV6W}N6[%S.png" alt="img"><a href="https://d0.ananas.chaoxing.com/download/">https://d0.ananas.chaoxing.com/download/</a> 接口，链接后加上对应课件的 objectid 即可获取到源文件。电脑上使用 Chrome 浏览器进入课程学习页面，打开开发者工具，在Console界面输入如下命令即可获取本页所有的 objectid：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">var attachments = document.getElementById(&#x27;iframe&#x27;).contentWindow.mArg.attachments;</span><br><span class="line">for (i=0;i&lt;attachments.length;i++)&#123;</span><br><span class="line">console.log(attachments[i].property.objectid</span><br></pre></td></tr></table></figure>
+
+<p>这样你就下载成功了老师的课件！！！</p>
+<p>本文主要参考了<a href="https://lmqyu.cn/1632.html%E3%80%82">https://lmqyu.cn/1632.html。</a></p>
 ]]></content>
+      <categories>
+        <category>使用帮助</category>
+      </categories>
+      <tags>
+        <tag>使用帮助</tag>
+      </tags>
   </entry>
 </search>
